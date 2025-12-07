@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Film, Github, Heart } from 'lucide-react';
 
+import TMDBLogo from '../common/TMDBLogo';
+
 export default function Footer() {
     const currentYear = new Date().getFullYear();
 
@@ -22,17 +24,17 @@ export default function Footer() {
                             Your personal movie tracking companion. Keep track of every film you've watched,
                             rate them, and discover your viewing patterns.
                         </p>
-                        <p className="text-sm text-gray-600">
-                            Powered by{' '}
+                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                            <span>Data sourced from</span>
                             <a
                                 href="https://www.themoviedb.org/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-primary-500 hover:text-primary-400"
+                                className="inline-block hover:opacity-80 transition-opacity"
                             >
-                                TMDB API
+                                <TMDBLogo height="h-3" />
                             </a>
-                        </p>
+                        </div>
                     </div>
 
                     {/* Quick Links */}

@@ -7,6 +7,8 @@ import { useTheme } from '../../context/ThemeContext';
 import { cn } from '../../utils/helpers';
 import Button from '../common/Button';
 
+import TMDBLogo from '../common/TMDBLogo';
+
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { user, isAuthenticated, logout } = useAuth();
@@ -58,6 +60,16 @@ export default function Navbar() {
 
                     {/* Right side */}
                     <div className="flex items-center gap-2">
+                        {/* TMDB Logo */}
+                        <a
+                            href="https://www.themoviedb.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mr-2 opacity-80 hover:opacity-100 transition-opacity hidden sm:block"
+                        >
+                            <TMDBLogo height="h-3" />
+                        </a>
+
                         {/* Theme Toggle */}
                         <button
                             onClick={toggleTheme}
