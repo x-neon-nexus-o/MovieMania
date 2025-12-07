@@ -1,0 +1,27 @@
+{
+    "name": "moviemania",
+    "version": "1.0.0",
+    "description": "Full-stack MERN Movie Tracking Application",
+    "private": true,
+    "scripts": {
+        "dev": "concurrently \"npm run server\" \"npm run client\"",
+        "server": "npm run dev --prefix server",
+        "client": "npm run dev --prefix client",
+        "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+        "build": "npm run build --prefix client",
+        "start": "npm run start --prefix server"
+    },
+    "keywords": [
+        "mern",
+        "movies",
+        "tracker",
+        "react",
+        "express",
+        "mongodb"
+    ],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    }
+}

@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100;
+        @apply antialiased;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-gray-100 dark:bg-gray-900;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-gray-400 dark:bg-gray-600;
+    }
+}
+
+/* Component styles */
+@layer components {
+
+    /* Glass morphism effect */
+    .glass {
+        @apply bg-white/80 dark:bg-gray-900/80;
+        @apply backdrop-blur-lg;
+        @apply border border-white/20 dark:border-gray-700/50;
+    }
+
+    /* Card styles */
+    .card {
+        @apply bg-white dark:bg-gray-900;
+        @apply rounded-2xl shadow-lg;
+        @apply border border-gray-100 dark:border-gray-800;
+        @apply transition-all duration-300;
+    }
+
+    .card-hover {
+        @apply hover:shadow-xl hover:scale-[1.02];
+        @apply hover:border-primary-200 dark:hover:border-primary-800;
+    }
+
+    /* Button styles */
+    .btn {
+        @apply inline-flex items-center justify-center;
+        @apply px-4 py-2 rounded-lg font-medium;
+        @apply transition-all duration-200;
+        @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+        @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    }
+
+    .btn-primary {
+        @apply bg-primary-600 text-white;
+        @apply hover:bg-primary-700;
+        @apply focus:ring-primary-500;
+    }
+
+    .btn-secondary {
+        @apply bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100;
+        @apply hover:bg-gray-200 dark:hover:bg-gray-700;
+        @apply focus:ring-gray-500;
+    }
+
+    .btn-ghost {
+        @apply bg-transparent text-gray-600 dark:text-gray-400;
+        @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+        @apply focus:ring-gray-500;
+    }
+
+    .btn-danger {
+        @apply bg-red-600 text-white;
+        @apply hover:bg-red-700;
+        @apply focus:ring-red-500;
+    }
+
+    /* Input styles */
+    .input {
+        @apply w-full px-4 py-2.5 rounded-lg;
+        @apply bg-white dark:bg-gray-900;
+        @apply border border-gray-300 dark:border-gray-700;
+        @apply text-gray-900 dark:text-gray-100;
+        @apply placeholder-gray-400 dark:placeholder-gray-500;
+        @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+        @apply transition-all duration-200;
+    }
+
+    .input-error {
+        @apply border-red-500 focus:ring-red-500;
+    }
+
+    /* Badge styles */
+    .badge {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    }
+
+    .badge-primary {
+        @apply bg-primary-100 text-primary-800 dark:bg-primary-900/30 dark:text-primary-300;
+    }
+
+    .badge-accent {
+        @apply bg-accent-100 text-accent-800 dark:bg-accent-900/30 dark:text-accent-300;
+    }
+
+    /* Skeleton loading animation */
+    .skeleton {
+        @apply bg-gray-200 dark:bg-gray-800;
+        @apply animate-pulse rounded;
+    }
+
+    /* Rating star color */
+    .star-filled {
+        @apply text-accent-500;
+    }
+
+    .star-empty {
+        @apply text-gray-300 dark:text-gray-600;
+    }
+}
+
+/* Utility classes */
+@layer utilities {
+
+    /* Text gradient */
+    .text-gradient {
+        @apply bg-clip-text text-transparent;
+        @apply bg-gradient-to-r from-primary-600 to-primary-400;
+    }
+
+    /* Shimmer effect for loading */
+    .shimmer {
+        background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 100%);
+        background-size: 200% 100%;
+        animation: shimmer 2s infinite;
+    }
+
+    /* Hide scrollbar but keep functionality */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* Aspect ratio for movie posters (2:3) */
+    .aspect-poster {
+        aspect-ratio: 2 / 3;
+    }
+
+    /* Aspect ratio for backdrop (16:9) */
+    .aspect-backdrop {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Star rating animation */
+@keyframes starPop {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.star-pop {
+    animation: starPop 0.2s ease-out;
+}
