@@ -20,6 +20,7 @@ import { StarRating } from '../components/common/StarRating';
 import Button from '../components/common/Button';
 import Modal from '../components/common/Modal';
 import { getPosterUrl, getBackdropUrl, formatDate, formatRuntime } from '../utils/helpers';
+import TrailerPlayer from '../components/movies/TrailerPlayer';
 import { useState } from 'react';
 
 export default function MovieDetailPage() {
@@ -261,6 +262,13 @@ export default function MovieDetailPage() {
                                 <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                                     {movie.overview}
                                 </p>
+                            </div>
+                        )}
+
+                        {/* Trailer */}
+                        {movie.tmdbId && (
+                            <div>
+                                <TrailerPlayer tmdbId={movie.tmdbId} title={movie.title} />
                             </div>
                         )}
 

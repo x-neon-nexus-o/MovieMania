@@ -4,6 +4,7 @@ import {
     getMovieDetails,
     getTrending,
     getPopular,
+    getMovieVideos,
     searchValidation
 } from '../controllers/tmdbController.js';
 import { authenticate } from '../middleware/auth.js';
@@ -15,6 +16,7 @@ const router = Router();
 // Public routes
 router.get('/trending', tmdbLimiter, getTrending);
 router.get('/popular', tmdbLimiter, getPopular);
+router.get('/movie/:tmdbId/videos', tmdbLimiter, getMovieVideos);
 
 // Protected routes (requires auth to search)
 router.get('/search', authenticate, tmdbLimiter, searchValidation, validateRequest, searchMovies);

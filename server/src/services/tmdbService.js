@@ -156,6 +156,63 @@ class TMDBService {
     }
 
     /**
+     * Get movie videos (trailers, teasers)
+     * @param {number} tmdbId - TMDB movie ID
+     * @returns {Promise<Object>} Video data with primary trailer and all videos
+     */
+    async getMovieVideos(tmdbId) {
+        try {
+            const response = await this.client.get(`/movie/${tmdbId}/videos`, {
+                params: {
+                    language: 'en-US'
+                }
+            });
+
+            const videos = response.data.results || [];
+
+            // Find official trailer (prioritize)
+            const officialTrailer = videos.find(
+                v => v.type === 'Trailer' &&
+                    v.official === true &&
+                    v.site === 'YouTube'
+            );
+
+            // Fallback to any trailer
+            const anyTrailer = videos.find(
+                v => v.type === 'Trailer' && v.site === 'YouTube'
+            );
+
+            // Get all trailers and teasers
+            const allVideos = videos.filter(
+                v => ['Trailer', 'Teaser'].includes(v.type) &&
+                    v.site === 'YouTube'
+            ).map(v => ({
+                key: v.key,
+                name: v.name,
+                type: v.type,
+                official: v.official,
+                publishedAt: v.published_at
+            }));
+
+            const primary = officialTrailer || anyTrailer;
+
+            return {
+                primary: primary ? {
+                    key: primary.key,
+                    name: primary.name,
+                    type: primary.type,
+                    official: primary.official
+                } : null,
+                all: allVideos,
+                hasTrailer: Boolean(primary)
+            };
+        } catch (error) {
+            console.error('Error fetching videos:', error);
+            return { primary: null, all: [], hasTrailer: false };
+        }
+    }
+
+    /**
      * Get full image URL
      * @param {string} path - Image path from TMDB
      * @param {string} size - Image size (w92, w185, w342, w500, w780, original)

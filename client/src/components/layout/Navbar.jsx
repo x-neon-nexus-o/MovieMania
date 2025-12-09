@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Menu, X, Sun, Moon, LogIn, LogOut, User, Film, Plus } from 'lucide-react';
+import { Menu, X, Sun, Moon, LogIn, LogOut, User, Film, Plus, Bookmark } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -49,6 +49,10 @@ export default function Navbar() {
                             <>
                                 <NavLink to="/dashboard" className={navLinkClass}>
                                     Dashboard
+                                </NavLink>
+                                <NavLink to="/watchlist" className={navLinkClass}>
+                                    <Bookmark className="w-4 h-4 inline mr-1" />
+                                    Watchlist
                                 </NavLink>
                                 <NavLink to="/add" className={navLinkClass}>
                                     <Plus className="w-4 h-4 inline mr-1" />
@@ -163,6 +167,14 @@ export default function Navbar() {
                                         onClick={() => setIsMenuOpen(false)}
                                     >
                                         Dashboard
+                                    </NavLink>
+                                    <NavLink
+                                        to="/watchlist"
+                                        className={navLinkClass}
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        <Bookmark className="w-4 h-4 inline mr-1" />
+                                        Watchlist
                                     </NavLink>
                                     <NavLink
                                         to="/add"

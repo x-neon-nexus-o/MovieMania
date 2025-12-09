@@ -86,3 +86,19 @@ export const getPopular = asyncHandler(async (req, res) => {
         throw ApiError.internal('Failed to fetch popular movies');
     }
 });
+
+/**
+ * @desc    Get movie videos (trailers, teasers)
+ * @route   GET /api/tmdb/movie/:tmdbId/videos
+ * @access  Public
+ */
+export const getMovieVideos = asyncHandler(async (req, res) => {
+    const { tmdbId } = req.params;
+
+    try {
+        const videos = await tmdbService.getMovieVideos(parseInt(tmdbId));
+        ApiResponse.success(res, videos);
+    } catch (error) {
+        throw ApiError.internal('Failed to fetch movie videos');
+    }
+});

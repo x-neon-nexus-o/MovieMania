@@ -3,6 +3,7 @@ import authRoutes from './authRoutes.js';
 import movieRoutes from './movieRoutes.js';
 import tmdbRoutes from './tmdbRoutes.js';
 import statsRoutes from './statsRoutes.js';
+import watchlistRoutes from './watchlistRoutes.js';
 
 const router = Router();
 
@@ -20,5 +21,6 @@ router.use('/auth', authRoutes);
 router.use('/movies', movieRoutes);
 router.use('/tmdb', tmdbRoutes);
 router.use('/stats', statsRoutes);
+router.use('/watchlist', watchlistRoutes);
 
 export default router;

@@ -8,6 +8,7 @@ import AddMoviePage from './pages/AddMoviePage';
 import EditMoviePage from './pages/EditMoviePage';
 import MovieDetailPage from './pages/MovieDetailPage';
 import StatsPage from './pages/StatsPage';
+import WatchlistPage from './pages/WatchlistPage';
 import NotFoundPage from './pages/NotFoundPage';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 
@@ -28,6 +29,14 @@ function App() {
                     element={
                         <ProtectedRoute>
                             <DashboardPage />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="watchlist"
+                    element={
+                        <ProtectedRoute>
+                            <WatchlistPage />
                         </ProtectedRoute>
                     }
                 />
