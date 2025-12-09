@@ -213,6 +213,64 @@ class TMDBService {
     }
 
     /**
+     * Get watch providers (streaming availability) for a movie
+     * @param {number} tmdbId - TMDB movie ID
+     * @param {string} region - Region code (e.g., 'US', 'IN', 'GB')
+     * @returns {Promise<Object>} Watch provider data
+     */
+    async getWatchProviders(tmdbId, region = 'US') {
+        try {
+            const response = await this.client.get(`/movie/${tmdbId}/watch/providers`);
+
+            // Get providers for the specified region, fallback to US
+            const results = response.data.results || {};
+            const regionData = results[region] || results['US'] || null;
+
+            if (!regionData) {
+                return {
+                    region,
+                    available: false,
+                    link: null,
+                    flatrate: [], // Subscription streaming
+                    rent: [],     // Rent options
+                    buy: [],      // Purchase options
+                    free: []      // Free with ads
+                };
+            }
+
+            // Format provider data
+            const formatProviders = (providers = []) =>
+                providers.map(p => ({
+                    id: p.provider_id,
+                    name: p.provider_name,
+                    logo: p.logo_path ? `${this.imageBaseUrl}/w92${p.logo_path}` : null,
+                    priority: p.display_priority
+                })).sort((a, b) => a.priority - b.priority);
+
+            return {
+                region,
+                available: true,
+                link: regionData.link,
+                flatrate: formatProviders(regionData.flatrate),
+                rent: formatProviders(regionData.rent),
+                buy: formatProviders(regionData.buy),
+                free: formatProviders(regionData.free)
+            };
+        } catch (error) {
+            console.error('Error fetching watch providers:', error);
+            return {
+                region,
+                available: false,
+                link: null,
+                flatrate: [],
+                rent: [],
+                buy: [],
+                free: []
+            };
+        }
+    }
+
+    /**
      * Get full image URL
      * @param {string} path - Image path from TMDB
      * @param {string} size - Image size (w92, w185, w342, w500, w780, original)

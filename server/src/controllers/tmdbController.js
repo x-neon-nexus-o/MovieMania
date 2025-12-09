@@ -102,3 +102,20 @@ export const getMovieVideos = asyncHandler(async (req, res) => {
         throw ApiError.internal('Failed to fetch movie videos');
     }
 });
+
+/**
+ * @desc    Get watch providers (streaming availability)
+ * @route   GET /api/tmdb/movie/:tmdbId/providers
+ * @access  Public
+ */
+export const getWatchProviders = asyncHandler(async (req, res) => {
+    const { tmdbId } = req.params;
+    const { region = 'US' } = req.query;
+
+    try {
+        const providers = await tmdbService.getWatchProviders(parseInt(tmdbId), region);
+        ApiResponse.success(res, providers);
+    } catch (error) {
+        throw ApiError.internal('Failed to fetch watch providers');
+    }
+});

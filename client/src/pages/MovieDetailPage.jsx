@@ -22,6 +22,7 @@ import Button from '../components/common/Button';
 import Modal from '../components/common/Modal';
 import { getPosterUrl, getBackdropUrl, formatDate, formatRuntime } from '../utils/helpers';
 import TrailerPlayer from '../components/movies/TrailerPlayer';
+import WhereToWatch from '../components/movies/WhereToWatch';
 import AddToCollectionModal from '../components/collections/AddToCollectionModal';
 import { useState } from 'react';
 
@@ -283,6 +284,11 @@ export default function MovieDetailPage() {
                             <div>
                                 <TrailerPlayer tmdbId={movie.tmdbId} title={movie.title} />
                             </div>
+                        )}
+
+                        {/* Where to Watch */}
+                        {movie.tmdbId && (
+                            <WhereToWatch tmdbId={movie.tmdbId} />
                         )}
 
                         {/* My Review */}
