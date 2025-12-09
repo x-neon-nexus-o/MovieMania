@@ -326,7 +326,7 @@ http://localhost:5000/api
 - [x] ~~Advanced statistics dashboard~~
 - [x] ~~Smart collections~~
 - [x] ~~Streaming availability~~
-- [ ] Export movies to CSV/JSON
+- [x] ~~Export movies to CSV/JSON~~
 - [ ] Import from Letterboxd/IMDb
 - [ ] Social sharing
 - [ ] Movie recommendations

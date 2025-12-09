@@ -5,6 +5,7 @@ import tmdbRoutes from './tmdbRoutes.js';
 import statsRoutes from './statsRoutes.js';
 import watchlistRoutes from './watchlistRoutes.js';
 import collectionRoutes from './collectionRoutes.js';
+import exportRoutes from './exportRoutes.js';
 
 const router = Router();
 
@@ -24,5 +25,6 @@ router.use('/tmdb', tmdbRoutes);
 router.use('/stats', statsRoutes);
 router.use('/watchlist', watchlistRoutes);
 router.use('/collections', collectionRoutes);
+router.use('/export', exportRoutes);
 
 export default router;
