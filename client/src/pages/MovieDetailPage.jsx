@@ -24,6 +24,7 @@ import ShareButton from '../components/common/ShareButton';
 import { getPosterUrl, getBackdropUrl, formatDate, formatRuntime } from '../utils/helpers';
 import TrailerPlayer from '../components/movies/TrailerPlayer';
 import WhereToWatch from '../components/movies/WhereToWatch';
+import RecommendedMovies from '../components/movies/RecommendedMovies';
 import AddToCollectionModal from '../components/collections/AddToCollectionModal';
 import { useState } from 'react';
 
@@ -296,6 +297,11 @@ export default function MovieDetailPage() {
                         {/* Where to Watch */}
                         {movie.tmdbId && (
                             <WhereToWatch tmdbId={movie.tmdbId} />
+                        )}
+
+                        {/* Recommended Movies */}
+                        {movie.tmdbId && (
+                            <RecommendedMovies tmdbId={movie.tmdbId} currentMovieId={movie._id} />
                         )}
 
                         {/* My Review */}

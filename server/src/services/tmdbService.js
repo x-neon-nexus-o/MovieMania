@@ -271,6 +271,64 @@ class TMDBService {
     }
 
     /**
+     * Get movie recommendations based on a movie
+     * @param {number} tmdbId - TMDB movie ID
+     * @param {number} page - Page number
+     * @returns {Promise<Object>} Recommended movies
+     */
+    async getRecommendations(tmdbId, page = 1) {
+        try {
+            const response = await this.client.get(`/movie/${tmdbId}/recommendations`, {
+                params: { page }
+            });
+
+            return {
+                results: response.data.results.slice(0, 12).map(this.formatMovieResult),
+                page: response.data.page,
+                totalPages: response.data.total_pages,
+                totalResults: response.data.total_results
+            };
+        } catch (error) {
+            console.error('Error fetching recommendations:', error);
+            return {
+                results: [],
+                page: 1,
+                totalPages: 0,
+                totalResults: 0
+            };
+        }
+    }
+
+    /**
+     * Get similar movies
+     * @param {number} tmdbId - TMDB movie ID
+     * @param {number} page - Page number
+     * @returns {Promise<Object>} Similar movies
+     */
+    async getSimilarMovies(tmdbId, page = 1) {
+        try {
+            const response = await this.client.get(`/movie/${tmdbId}/similar`, {
+                params: { page }
+            });
+
+            return {
+                results: response.data.results.slice(0, 12).map(this.formatMovieResult),
+                page: response.data.page,
+                totalPages: response.data.total_pages,
+                totalResults: response.data.total_results
+            };
+        } catch (error) {
+            console.error('Error fetching similar movies:', error);
+            return {
+                results: [],
+                page: 1,
+                totalPages: 0,
+                totalResults: 0
+            };
+        }
+    }
+
+    /**
      * Get full image URL
      * @param {string} path - Image path from TMDB
      * @param {string} size - Image size (w92, w185, w342, w500, w780, original)

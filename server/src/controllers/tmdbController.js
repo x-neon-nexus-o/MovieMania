@@ -119,3 +119,35 @@ export const getWatchProviders = asyncHandler(async (req, res) => {
         throw ApiError.internal('Failed to fetch watch providers');
     }
 });
+
+/**
+ * @desc    Get movie recommendations
+ * @route   GET /api/tmdb/movie/:tmdbId/recommendations
+ * @access  Public
+ */
+export const getRecommendations = asyncHandler(async (req, res) => {
+    const { tmdbId } = req.params;
+
+    try {
+        const recommendations = await tmdbService.getRecommendations(parseInt(tmdbId));
+        ApiResponse.success(res, recommendations);
+    } catch (error) {
+        throw ApiError.internal('Failed to fetch recommendations');
+    }
+});
+
+/**
+ * @desc    Get similar movies
+ * @route   GET /api/tmdb/movie/:tmdbId/similar
+ * @access  Public
+ */
+export const getSimilarMovies = asyncHandler(async (req, res) => {
+    const { tmdbId } = req.params;
+
+    try {
+        const similar = await tmdbService.getSimilarMovies(parseInt(tmdbId));
+        ApiResponse.success(res, similar);
+    } catch (error) {
+        throw ApiError.internal('Failed to fetch similar movies');
+    }
+});
