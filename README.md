@@ -1,372 +1,356 @@
-# 🎬 MovieMania
-
 <div align="center">
 
-![MovieMania Banner](https://img.shields.io/badge/MovieMania-Personal%20Movie%20Tracker-6366f1?style=for-the-badge&logo=film&logoColor=white)
+# 🎬 MovieMania
+
+<img src="https://img.shields.io/badge/MovieMania-Your%20Personal%20Cinema-6366f1?style=for-the-badge&logo=film&logoColor=white" alt="MovieMania" />
+
+### **Track what you watch. Discover what's next. Own your movie journey.**
+
+<br />
 
 [![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=white)](https://react.dev/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-6+-47A248?style=flat-square&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.x-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![TMDB](https://img.shields.io/badge/TMDB-Powered-01D277?style=flat-square&logo=themoviedatabase&logoColor=white)](https://www.themoviedb.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
-**A production-grade MERN stack application for tracking and showcasing your watched movies**
+<br />
 
-[Features](#-features) • [Tech Stack](#-tech-stack) • [Installation](#-installation) • [Usage](#-usage) • [API Reference](#-api-reference)
+[🚀 Quick Start](#-quick-start) • [✨ Features](#-feature-highlights) • [📖 Documentation](#-documentation) • [🛠️ Tech Stack](#️-tech-stack)
+
+---
 
 </div>
 
----
+## 🎯 What is MovieMania?
 
-## ✨ Features
+MovieMania is a **full-featured movie tracking platform** built with the MERN stack. It's designed for movie enthusiasts who want more than just a list — they want **insights, organization, and discovery**.
 
-### 🎯 Core Features
-- **🔐 Secure Authentication** - JWT-based auth with access/refresh token pattern
-- **🎬 TMDB Integration** - Search and import movies from The Movie Database
-- **⭐ Personal Ratings** - Rate movies from 0-5 with half-star precision
-- **📝 Reviews & Notes** - Write reviews and private notes for each movie
-- **🏷️ Custom Tags** - Organize movies with your own tags
-- **❤️ Favorites** - Mark your all-time favorite movies
+<table>
+<tr>
+<td width="50%">
 
-### 📋 Intelligent Watchlist System
-- **🔥 Priority Levels** - High/Medium/Low with fire, star, and thought bubble icons
-- **📝 Notes & Source Tracking** - Remember why you added each movie
-- **🎯 Target Watch Dates** - Set when you plan to watch
-- **✅ Move to Watched** - Convert watchlist items with rating and review
+### 🎬 For Movie Lovers
+- Log every movie you watch with personal ratings & reviews
+- Create themed collections for any occasion
+- See exactly where movies are streaming
+- Get AI-powered recommendations based on your taste
 
-### 🎥 YouTube Trailer Integration
-- **▶️ Embedded Trailers** - Watch trailers directly on movie detail pages
-- **🖼️ Thumbnail Preview** - Click-to-play with video thumbnails
-- **🎭 Theater Mode** - Expand to fullscreen viewing
+</td>
+<td width="50%">
 
-### 📊 Advanced Statistics Dashboard
-- **📈 Genre Pie Chart** - Visual breakdown of your genre preferences
-- **📉 Rating Distribution** - Color-coded bar chart from red to green
-- **📅 Activity Heatmap** - GitHub-style calendar showing daily viewing
-- **🔥 Watching Streaks** - Current and longest streak tracking
-- **🎬 Decade Breakdown** - Movies grouped by release decade
-- **👥 Top Directors & Actors** - Your most-watched credits
+### 📊 For Data Enthusiasts
+- Beautiful stats dashboard with charts & heatmaps
+- Track your watching streaks and patterns
+- Discover your favorite genres, directors, actors
+- Export your entire collection to CSV or JSON
 
-### 📁 Smart Movie Collections
-- **🎨 Custom Collections** - Create themed lists with emoji and colors
-- **📌 Pin Favorites** - Pin important collections to the top
-- **🏷️ Collection Templates** - Quick-start with Favorites, Top Rated, Sci-Fi, etc.
-- **🖼️ Auto Cover Images** - Collections show poster grid preview
-
-### 🌍 Streaming Availability ("Where to Watch")
-- **📺 Multi-Region Support** - 8 countries (IN, US, GB, CA, AU, DE, FR, JP)
-- **🎬 Provider Categories** - Stream, Rent, Buy, Free with Ads
-- **🏷️ Provider Logos** - Visual logos with hover tooltips
-- **🔗 JustWatch Integration** - Link to full availability info
-
-### 🎨 UI/UX Features
-- **🌓 Dark Mode** - Elegant dark theme with system preference detection
-- **📱 Responsive Design** - Works perfectly on desktop, tablet, and mobile
-- **✨ Smooth Animations** - Framer Motion powered transitions
-- **⚡ Lazy Loading** - Code-split pages for faster initial load
-- **🛡️ Error Boundaries** - Graceful error handling with retry
-
-### 🔒 Security Features
-- HTTP-only cookies for refresh tokens
-- Rate limiting on API endpoints
-- Input validation and sanitization
-- CORS protection
-- Helmet security headers
+</td>
+</tr>
+</table>
 
 ---
 
-## 🛠 Tech Stack
+## 🚀 Quick Start
 
-### Backend
-| Technology | Purpose |
-|------------|---------|
-| **Node.js 18+** | Runtime environment |
-| **Express.js 4** | Web framework |
-| **MongoDB + Mongoose** | Database & ODM |
-| **JWT** | Authentication tokens |
-| **bcrypt** | Password hashing |
-| **express-validator** | Input validation |
-| **Helmet** | Security headers |
-| **express-rate-limit** | Rate limiting |
+Get up and running in **under 5 minutes**:
 
-### Frontend
-| Technology | Purpose |
-|------------|---------|
-| **React 18** | UI framework |
-| **Vite 5** | Build tool |
-| **Tailwind CSS 3** | Styling |
-| **React Router 6** | Routing |
-| **TanStack Query** | Server state management |
-| **React Hook Form + Zod** | Form handling & validation |
-| **Framer Motion** | Animations |
-| **Recharts** | Data visualization |
-| **Lucide React** | Icons |
+```bash
+# 1. Clone the repo
+git clone https://github.com/yourusername/moviemania.git && cd moviemania
 
-### External APIs
-| Service | Purpose |
-|---------|---------|
-| **TMDB API** | Movie data, posters, metadata, trailers, streaming providers |
+# 2. Install everything
+npm run install:all
+
+# 3. Configure your environment
+cp server/.env.example server/.env
+# Edit server/.env with your MongoDB URI and TMDB API key
+
+# 4. Launch!
+npm run dev
+```
+
+Open **http://localhost:5173** and start logging movies! 🎉
+
+<details>
+<summary>📋 <b>What you'll need</b> (click to expand)</summary>
+
+| Requirement | Get it here |
+|------------|-------------|
+| Node.js 18+ | [nodejs.org](https://nodejs.org/) |
+| MongoDB | [MongoDB Atlas](https://www.mongodb.com/atlas) (free tier works!) |
+| TMDB API Key | [themoviedb.org/settings/api](https://www.themoviedb.org/settings/api) (free) |
+
+</details>
 
 ---
 
-## 📁 Project Structure
+## ✨ Feature Highlights
+
+<table>
+<tr>
+<td align="center" width="25%">
+<h3>🎬</h3>
+<b>Smart Logging</b><br/>
+<sub>TMDB integration • Ratings • Reviews • Tags</sub>
+</td>
+<td align="center" width="25%">
+<h3>📋</h3>
+<b>Watchlist</b><br/>
+<sub>Priorities • Notes • Target dates • Move to watched</sub>
+</td>
+<td align="center" width="25%">
+<h3>📁</h3>
+<b>Collections</b><br/>
+<sub>Themed lists • Emoji icons • Auto-posters • Pin favorites</sub>
+</td>
+<td align="center" width="25%">
+<h3>📊</h3>
+<b>Statistics</b><br/>
+<sub>Charts • Heatmaps • Streaks • Top credits</sub>
+</td>
+</tr>
+<tr>
+<td align="center" width="25%">
+<h3>🎥</h3>
+<b>Trailers</b><br/>
+<sub>YouTube embeds • Thumbnails • Theater mode</sub>
+</td>
+<td align="center" width="25%">
+<h3>🌍</h3>
+<b>Where to Watch</b><br/>
+<sub>8 regions • Stream/Rent/Buy • Provider logos</sub>
+</td>
+<td align="center" width="25%">
+<h3>🤖</h3>
+<b>Recommendations</b><br/>
+<sub>5-signal AI • Taste profile • "Why?" explanations</sub>
+</td>
+<td align="center" width="25%">
+<h3>🔄</h3>
+<b>Import/Export</b><br/>
+<sub>Letterboxd • IMDb • CSV • JSON</sub>
+</td>
+</tr>
+</table>
+
+---
+
+### 🤖 Smart Recommendations
+
+Our recommendation engine doesn't just show popular movies — it learns **your taste**:
+
+| Signal | Weight | What it does |
+|--------|--------|--------------|
+| **Your Genres** | 40% | Movies matching your top-rated genres |
+| **Similar Films** | 25% | "Because you loved Inception..." |
+| **Directors/Actors** | 15% | More from creators you love |
+| **Mood Match** | 10% | Based on your recent watching patterns |
+| **Trending** | 10% | Fresh discoveries you might miss |
+
+Navigate to **"For You"** in the navbar to see your personalized picks with explanations.
+
+---
+
+### 🌍 Where to Watch
+
+Never wonder "where can I stream this?" again:
+
+- **8 Countries Supported**: 🇮🇳 IN • 🇺🇸 US • 🇬🇧 GB • 🇨🇦 CA • 🇦🇺 AU • 🇩🇪 DE • 🇫🇷 FR • 🇯🇵 JP
+- **All Options**: Stream, Rent, Buy, Free with Ads
+- **Powered by**: JustWatch via TMDB
+
+---
+
+### 📊 Stats Dashboard
+
+Visualize your movie journey:
+
+| Feature | What you'll see |
+|---------|-----------------|
+| **Genre Pie Chart** | Your favorite genres at a glance |
+| **Rating Distribution** | Color-coded from 🔴 to 🟢 |
+| **Activity Heatmap** | GitHub-style calendar of your watching |
+| **Watching Streaks** | Current streak 🔥 and personal best |
+| **Decade Breakdown** | Movies grouped by release era |
+| **Top Directors** | Who you've watched most |
+
+---
+
+## 📖 Documentation
+
+<details>
+<summary><b>🗂️ Project Structure</b></summary>
 
 ```
 MovieMania/
-├── 📦 package.json          # Root package with concurrently
-├── 📂 server/               # Backend API
+├── 📦 package.json          # Root with concurrently scripts
+├── 📂 server/               # Express.js Backend
 │   ├── src/
-│   │   ├── config/          # Database & environment config
-│   │   ├── models/          # Mongoose schemas (Movie, User, WatchlistMovie, Collection)
+│   │   ├── config/          # Database & env config
 │   │   ├── controllers/     # Route handlers
-│   │   ├── routes/          # API routes
-│   │   ├── middleware/      # Auth, validation, error handling
-│   │   ├── services/        # TMDB API, token management
-│   │   ├── utils/           # Helpers & error classes
-│   │   ├── app.js           # Express configuration
-│   │   └── server.js        # Entry point
-│   ├── .env.example         # Environment template
-│   └── package.json
+│   │   ├── middleware/      # Auth, validation
+│   │   ├── models/          # Mongoose schemas
+│   │   ├── routes/          # API endpoints
+│   │   └── services/        # TMDB, recommendations
+│   └── .env.example
 │
-└── 📂 client/               # Frontend React App
+└── 📂 client/               # React + Vite Frontend
     ├── src/
-    │   ├── components/
-    │   │   ├── common/      # Button, Modal, ErrorBoundary, EmptyState
-    │   │   ├── layout/      # Navbar, Footer, Layout
-    │   │   ├── auth/        # Login, Register forms
-    │   │   ├── movies/      # MovieCard, TrailerPlayer, WhereToWatch
-    │   │   ├── watchlist/   # WatchlistCard, AddToWatchlistModal
-    │   │   ├── collections/ # CollectionCard, CreateCollectionModal
-    │   │   ├── stats/       # Charts (Pie, Bar, Heatmap, Timeline)
-    │   │   └── filters/     # FilterBar, SearchBar
+    │   ├── components/      # UI components
     │   ├── pages/           # Route pages
-    │   ├── hooks/           # Custom React hooks
-    │   ├── context/         # Auth & Theme contexts
-    │   ├── services/        # API services
-    │   └── utils/           # Helpers & constants
-    ├── tailwind.config.js   # Tailwind customization
-    └── package.json
+    │   ├── hooks/           # Custom hooks
+    │   ├── context/         # Auth & Theme
+    │   └── services/        # API layer
+    └── tailwind.config.js
+```
+</details>
+
+<details>
+<summary><b>📡 API Reference</b></summary>
+
+**Base URL**: `http://localhost:5000/api`
+
+| Endpoint | Description |
+|----------|-------------|
+| `/auth/*` | Register, login, refresh, logout |
+| `/movies/*` | CRUD for your movie collection |
+| `/watchlist/*` | Manage your to-watch list |
+| `/collections/*` | Create & manage themed lists |
+| `/stats/*` | Aggregated viewing statistics |
+| `/recommendations/*` | Personalized suggestions |
+| `/export/*` | Download your data (CSV/JSON) |
+| `/import/*` | Upload from Letterboxd/IMDb |
+| `/tmdb/*` | Proxy to TMDB API |
+
+</details>
+
+<details>
+<summary><b>🔐 Environment Variables</b></summary>
+
+Create `server/.env`:
+
+```env
+# Required
+MONGODB_URI=mongodb://localhost:27017/moviemania
+JWT_SECRET=your_secret_at_least_32_characters_long
+REFRESH_TOKEN_SECRET=another_secret_key_also_32_chars
+TMDB_API_KEY=your_tmdb_api_key
+
+# Optional
+NODE_ENV=development
+PORT=5000
 ```
 
----
+</details>
 
-## 🚀 Installation
+<details>
+<summary><b>📜 Available Scripts</b></summary>
 
-### Prerequisites
+| Command | What it does |
+|---------|--------------|
+| `npm run dev` | Start both servers (recommended) |
+| `npm run server` | Backend only |
+| `npm run client` | Frontend only |
+| `npm run build` | Production build |
+| `npm run install:all` | Install all dependencies |
 
-- **Node.js 18+** - [Download](https://nodejs.org/)
-- **MongoDB** - Local installation or [MongoDB Atlas](https://www.mongodb.com/atlas) (free tier)
-- **TMDB API Key** - [Get free API key](https://www.themoviedb.org/settings/api)
-
-### Quick Start
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/moviemania.git
-   cd moviemania
-   ```
-
-2. **Install all dependencies**
-   ```bash
-   npm run install:all
-   ```
-
-3. **Configure environment variables**
-   
-   Create `server/.env` from the example:
-   ```bash
-   cp server/.env.example server/.env
-   ```
-   
-   Update with your values:
-   ```env
-   MONGODB_URI=mongodb://localhost:27017/moviemania
-   JWT_SECRET=your_super_secret_jwt_key_min_32_chars
-   REFRESH_TOKEN_SECRET=another_super_secret_key
-   TMDB_API_KEY=your_tmdb_api_key_here
-   ```
-
-4. **Start the development servers**
-   ```bash
-   npm run dev
-   ```
-   
-   This runs both servers concurrently:
-   - 🖥️ **Backend**: http://localhost:5000
-   - 🌐 **Frontend**: http://localhost:5173
+</details>
 
 ---
 
-## 📖 Usage
+## 🛠️ Tech Stack
 
-### Getting Started
+<table>
+<tr>
+<th>Backend</th>
+<th>Frontend</th>
+<th>External</th>
+</tr>
+<tr>
+<td>
 
-1. **Register an account** at http://localhost:5173/register
-2. **Login** with your credentials
-3. **Add your first movie**:
-   - Click "Add Movie" in the navbar
-   - Search for a movie by title
-   - Select it and add your rating, review, and tags
-4. **Manage your watchlist** - Add movies you want to watch later
-5. **Create collections** - Organize movies into themed lists
-6. **View statistics** - Explore your watching patterns with charts
-7. **Check streaming** - See where movies are available to watch
+- Node.js 18+
+- Express.js 4
+- MongoDB + Mongoose
+- JWT Authentication
+- bcrypt
+- Helmet Security
+- Rate Limiting
 
-### Available Scripts
+</td>
+<td>
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start both servers in development mode |
-| `npm run server` | Start only the backend server |
-| `npm run client` | Start only the frontend server |
-| `npm run build` | Build the frontend for production |
-| `npm run start` | Start the backend in production mode |
+- React 18
+- Vite 5
+- Tailwind CSS 3
+- React Router 6
+- TanStack Query
+- Framer Motion
+- Recharts
 
----
+</td>
+<td>
 
-## 📡 API Reference
+- TMDB API
+- JustWatch (via TMDB)
+- YouTube Embeds
 
-### Base URL
-```
-http://localhost:5000/api
-```
-
-### Authentication
-
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| `POST` | `/auth/register` | Create new account | ❌ |
-| `POST` | `/auth/login` | Login & get tokens | ❌ |
-| `POST` | `/auth/refresh` | Refresh access token | ❌ |
-| `POST` | `/auth/logout` | Logout user | ✅ |
-| `GET` | `/auth/me` | Get current user | ✅ |
-
-### Movies
-
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| `GET` | `/movies` | List all movies (with filters) | ❌ |
-| `GET` | `/movies/:id` | Get single movie | ❌ |
-| `POST` | `/movies` | Add new movie | ✅ |
-| `PUT` | `/movies/:id` | Update movie | ✅ |
-| `DELETE` | `/movies/:id` | Delete movie | ✅ |
-
-### Watchlist
-
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| `GET` | `/watchlist` | Get user's watchlist | ✅ |
-| `POST` | `/watchlist` | Add to watchlist | ✅ |
-| `PUT` | `/watchlist/:id` | Update watchlist item | ✅ |
-| `DELETE` | `/watchlist/:id` | Remove from watchlist | ✅ |
-| `POST` | `/watchlist/:id/watched` | Move to watched | ✅ |
-
-### Collections
-
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| `GET` | `/collections` | Get user's collections | ✅ |
-| `POST` | `/collections` | Create collection | ✅ |
-| `GET` | `/collections/:id` | Get collection details | ✅ |
-| `PUT` | `/collections/:id` | Update collection | ✅ |
-| `DELETE` | `/collections/:id` | Delete collection | ✅ |
-| `POST` | `/collections/:id/movies` | Add movie to collection | ✅ |
-| `DELETE` | `/collections/:id/movies/:movieId` | Remove movie | ✅ |
-
-### TMDB Proxy
-
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| `GET` | `/tmdb/search?query=...` | Search TMDB movies | ✅ |
-| `GET` | `/tmdb/movie/:tmdbId` | Get movie details | ✅ |
-| `GET` | `/tmdb/movie/:tmdbId/videos` | Get trailers | ❌ |
-| `GET` | `/tmdb/movie/:tmdbId/providers` | Get streaming providers | ❌ |
-| `GET` | `/tmdb/trending` | Get trending movies | ❌ |
-| `GET` | `/tmdb/popular` | Get popular movies | ❌ |
-
-### Statistics
-
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| `GET` | `/stats` | Overall statistics | ❌ |
-| `GET` | `/stats/by-rating` | Rating distribution | ❌ |
-| `GET` | `/stats/by-genre` | Genre breakdown | ❌ |
-| `GET` | `/stats/by-decade` | Movies by decade | ❌ |
-| `GET` | `/stats/heatmap` | Activity heatmap | ❌ |
-| `GET` | `/stats/streaks` | Watching streaks | ❌ |
-| `GET` | `/stats/credits` | Top directors/actors | ❌ |
-
----
-
-## 🔐 Environment Variables
-
-### Backend (`server/.env`)
-
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `NODE_ENV` | No | Environment (development/production) |
-| `PORT` | No | Server port (default: 5000) |
-| `MONGODB_URI` | ✅ | MongoDB connection string |
-| `JWT_SECRET` | ✅ | Secret for access tokens (32+ chars) |
-| `REFRESH_TOKEN_SECRET` | ✅ | Secret for refresh tokens |
-| `TMDB_API_KEY` | ✅ | Your TMDB API key |
-
-### Frontend (`client/.env`)
-
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `VITE_API_URL` | No | API base URL (default: /api) |
+</td>
+</tr>
+</table>
 
 ---
 
 ## 🗺️ Roadmap
 
-- [x] ~~Watchlist feature~~
-- [x] ~~YouTube trailer integration~~
-- [x] ~~Advanced statistics dashboard~~
-- [x] ~~Smart collections~~
-- [x] ~~Streaming availability~~
-- [x] ~~Export movies to CSV/JSON~~
-- [x] ~~Import from Letterboxd/IMDb~~
-- [x] ~~Social sharing~~
-- [x] ~~Movie recommendations~~
-- [ ] TV shows support
-- [ ] Mobile app (React Native)
+| Status | Feature |
+|--------|---------|
+| ✅ | Watchlist with priorities |
+| ✅ | YouTube trailer integration |
+| ✅ | Advanced statistics dashboard |
+| ✅ | Smart collections |
+| ✅ | Streaming availability |
+| ✅ | Export to CSV/JSON |
+| ✅ | Import from Letterboxd/IMDb |
+| ✅ | Social sharing |
+| ✅ | AI-powered recommendations |
+| 🔜 | TV shows support |
+| 🔜 | Mobile app (React Native) |
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+We welcome contributions! Here's how:
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+1. **Fork** the repository
+2. **Create** your feature branch: `git checkout -b feature/AmazingFeature`
+3. **Commit** your changes: `git commit -m 'Add AmazingFeature'`
+4. **Push** to the branch: `git push origin feature/AmazingFeature`
+5. **Open** a Pull Request
 
 ---
 
 ## 🙏 Acknowledgments
 
-- [TMDB](https://www.themoviedb.org/) for the movie data API
-- [JustWatch](https://www.justwatch.com/) for streaming availability data
-- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
-- [Recharts](https://recharts.org/) for beautiful charts
-- [Lucide](https://lucide.dev/) for icons
-- [Framer Motion](https://www.framer.com/motion/) for animations
+- [TMDB](https://www.themoviedb.org/) — Movie data & metadata
+- [JustWatch](https://www.justwatch.com/) — Streaming availability
+- [Tailwind CSS](https://tailwindcss.com/) — Utility-first CSS
+- [Recharts](https://recharts.org/) — Beautiful charts
+- [Lucide](https://lucide.dev/) — Icons
+- [Framer Motion](https://www.framer.com/motion/) — Animations
 
 ---
 
 <div align="center">
 
 **Made with ❤️ for movie lovers**
+
+<sub>This product uses the TMDB API but is not endorsed or certified by TMDB.</sub>
+
+[![TMDB](https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg)](https://www.themoviedb.org/)
 
 [⬆ Back to top](#-moviemania)
 
