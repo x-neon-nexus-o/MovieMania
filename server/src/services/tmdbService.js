@@ -79,6 +79,11 @@ class TMDBService {
         };
     }
 
+    // Alias for recommendation service
+    async getTrendingMovies(page = 1) {
+        return this.getTrending('week', page);
+    }
+
     /**
      * Get popular movies
      * @param {number} page - Page number
@@ -95,6 +100,37 @@ class TMDBService {
             totalPages: response.data.total_pages,
             totalResults: response.data.total_results
         };
+    }
+
+    // Alias for recommendation service
+    async getPopularMovies(page = 1) {
+        return this.getPopular(page);
+    }
+
+    /**
+     * Discover movies with custom filters
+     * @param {Object} params - Filter parameters
+     * @returns {Promise<Object>} Discovered movies
+     */
+    async discoverMovies(params = {}) {
+        try {
+            const response = await this.client.get('/discover/movie', {
+                params: {
+                    ...params,
+                    page: params.page || 1
+                }
+            });
+
+            return {
+                results: response.data.results.map(this.formatMovieResult),
+                page: response.data.page,
+                totalPages: response.data.total_pages,
+                totalResults: response.data.total_results
+            };
+        } catch (error) {
+            console.error('Error discovering movies:', error);
+            return { results: [], page: 1, totalPages: 0, totalResults: 0 };
+        }
     }
 
     /**

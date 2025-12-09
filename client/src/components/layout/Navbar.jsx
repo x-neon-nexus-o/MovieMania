@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Menu, X, Sun, Moon, LogIn, LogOut, User, Film, Plus, Bookmark, FolderOpen } from 'lucide-react';
+import { Menu, X, Sun, Moon, LogIn, LogOut, User, Film, Plus, Bookmark, FolderOpen, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -49,6 +49,10 @@ export default function Navbar() {
                             <>
                                 <NavLink to="/dashboard" className={navLinkClass}>
                                     Dashboard
+                                </NavLink>
+                                <NavLink to="/for-you" className={navLinkClass}>
+                                    <Sparkles className="w-4 h-4 inline mr-1 text-amber-500" />
+                                    For You
                                 </NavLink>
                                 <NavLink to="/watchlist" className={navLinkClass}>
                                     <Bookmark className="w-4 h-4 inline mr-1" />

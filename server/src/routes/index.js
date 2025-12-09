@@ -7,6 +7,7 @@ import watchlistRoutes from './watchlistRoutes.js';
 import collectionRoutes from './collectionRoutes.js';
 import exportRoutes from './exportRoutes.js';
 import importRoutes from './importRoutes.js';
+import recommendationRoutes from './recommendationRoutes.js';
 
 const router = Router();
 
@@ -28,5 +29,6 @@ router.use('/watchlist', watchlistRoutes);
 router.use('/collections', collectionRoutes);
 router.use('/export', exportRoutes);
 router.use('/import', importRoutes);
+router.use('/recommendations', recommendationRoutes);
 
 export default router;

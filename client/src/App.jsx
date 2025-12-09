@@ -18,6 +18,7 @@ const StatsPage = lazy(() => import('./pages/StatsPage'));
 const WatchlistPage = lazy(() => import('./pages/WatchlistPage'));
 const CollectionsPage = lazy(() => import('./pages/CollectionsPage'));
 const CollectionDetailPage = lazy(() => import('./pages/CollectionDetailPage'));
+const RecommendationsPage = lazy(() => import('./pages/RecommendationsPage'));
 
 function App() {
     return (
@@ -78,6 +79,14 @@ function App() {
                             element={
                                 <ProtectedRoute>
                                     <EditMoviePage />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="for-you"
+                            element={
+                                <ProtectedRoute>
+                                    <RecommendationsPage />
                                 </ProtectedRoute>
                             }
                         />
