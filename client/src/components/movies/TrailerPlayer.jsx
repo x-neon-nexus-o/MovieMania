@@ -15,7 +15,8 @@ export default function TrailerPlayer({ tmdbId, title }) {
         queryKey: ['movie-videos', tmdbId],
         queryFn: async () => {
             const response = await api.get(`/tmdb/movie/${tmdbId}/videos`);
-            return response.data.data;
+            // api.js interceptor already returns response.data, so we access .data directly
+            return response.data;
         },
         enabled: !!tmdbId,
         staleTime: 1000 * 60 * 60 * 24, // Cache for 24 hours
@@ -55,8 +56,8 @@ export default function TrailerPlayer({ tmdbId, title }) {
                     <button
                         onClick={() => setIsTheaterMode(!isTheaterMode)}
                         className={`p-2 rounded-lg transition-colors ${isTheaterMode
-                                ? 'bg-white/10 hover:bg-white/20 text-white'
-                                : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400'
+                            ? 'bg-white/10 hover:bg-white/20 text-white'
+                            : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400'
                             }`}
                         title={isTheaterMode ? 'Exit theater mode' : 'Theater mode'}
                     >
