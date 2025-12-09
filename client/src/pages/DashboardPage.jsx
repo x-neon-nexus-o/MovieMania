@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Plus, Film, Star, Heart, Clock, Trash2, Download } from 'lucide-react';
+import { Plus, Film, Star, Heart, Clock, Trash2, Download, Upload } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useAuth } from '../context/AuthContext';
 import { useMovies, useDeleteMovie } from '../hooks/useMovies';
@@ -9,12 +9,14 @@ import MovieGrid from '../components/movies/MovieGrid';
 import Button from '../components/common/Button';
 import Modal from '../components/common/Modal';
 import ExportModal from '../components/movies/ExportModal';
+import ImportModal from '../components/movies/ImportModal';
 
 export default function DashboardPage() {
     const { user } = useAuth();
     const navigate = useNavigate();
     const [deleteModal, setDeleteModal] = useState({ isOpen: false, movie: null });
     const [isExportModalOpen, setIsExportModalOpen] = useState(false);
+    const [isImportModalOpen, setIsImportModalOpen] = useState(false);
 
     const { data, isLoading } = useMovies({ limit: 10, sort: 'createdAt', order: 'desc' });
     const deleteMovie = useDeleteMovie();
@@ -54,7 +56,14 @@ export default function DashboardPage() {
                         Welcome back, {user?.username}! Manage your movie collection.
                     </p>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
+                    <Button
+                        variant="secondary"
+                        leftIcon={<Upload className="w-5 h-5" />}
+                        onClick={() => setIsImportModalOpen(true)}
+                    >
+                        Import
+                    </Button>
                     <Button
                         variant="secondary"
                         leftIcon={<Download className="w-5 h-5" />}
@@ -199,6 +208,13 @@ export default function DashboardPage() {
             <ExportModal
                 isOpen={isExportModalOpen}
                 onClose={() => setIsExportModalOpen(false)}
+            />
+
+            {/* Import Modal */}
+            <ImportModal
+                isOpen={isImportModalOpen}
+                onClose={() => setIsImportModalOpen(false)}
+                onSuccess={() => window.location.reload()}
             />
         </div>
     );
