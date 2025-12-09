@@ -34,6 +34,14 @@ const statsService = {
     },
 
     /**
+     * Get stats by decade
+     */
+    async getStatsByDecade() {
+        const response = await api.get('/stats/by-decade');
+        return response.data;
+    },
+
+    /**
      * Get watching timeline
      */
     async getTimeline() {
@@ -48,6 +56,32 @@ const statsService = {
         const response = await api.get('/stats/tags', {
             params: { limit },
         });
+        return response.data;
+    },
+
+    /**
+     * Get heatmap data for calendar visualization
+     */
+    async getHeatmap(year) {
+        const response = await api.get('/stats/heatmap', {
+            params: { year },
+        });
+        return response.data;
+    },
+
+    /**
+     * Get watching streaks
+     */
+    async getStreaks() {
+        const response = await api.get('/stats/streaks');
+        return response.data;
+    },
+
+    /**
+     * Get top directors and actors
+     */
+    async getCreditStats() {
+        const response = await api.get('/stats/credits');
         return response.data;
     },
 };
