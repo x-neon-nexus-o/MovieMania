@@ -20,6 +20,7 @@ import { PageLoader } from '../components/common/LoadingSpinner';
 import { StarRating } from '../components/common/StarRating';
 import Button from '../components/common/Button';
 import Modal from '../components/common/Modal';
+import ShareButton from '../components/common/ShareButton';
 import { getPosterUrl, getBackdropUrl, formatDate, formatRuntime } from '../utils/helpers';
 import TrailerPlayer from '../components/movies/TrailerPlayer';
 import WhereToWatch from '../components/movies/WhereToWatch';
@@ -158,6 +159,12 @@ export default function MovieDetailPage() {
                                 {movie.isFavorite && (
                                     <Heart className="w-8 h-8 text-red-500 fill-red-500 flex-shrink-0" />
                                 )}
+                                <div className="ml-auto flex-shrink-0">
+                                    <ShareButton
+                                        title={movie.title}
+                                        description={`I watched "${movie.title}" (${movie.year}) and rated it ${movie.myRating}/5 stars! 🎬`}
+                                    />
+                                </div>
                             </div>
                             {movie.originalTitle && movie.originalTitle !== movie.title && (
                                 <p className="text-lg text-gray-600 dark:text-gray-400 mt-1">

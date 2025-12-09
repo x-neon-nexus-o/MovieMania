@@ -328,7 +328,7 @@ http://localhost:5000/api
 - [x] ~~Streaming availability~~
 - [x] ~~Export movies to CSV/JSON~~
 - [x] ~~Import from Letterboxd/IMDb~~
-- [ ] Social sharing
+- [x] ~~Social sharing~~
 - [ ] Movie recommendations
 - [ ] TV shows support
 - [ ] Mobile app (React Native)
