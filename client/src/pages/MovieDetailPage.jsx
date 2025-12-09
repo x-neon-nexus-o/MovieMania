@@ -10,7 +10,8 @@ import {
     Trash2,
     Tag,
     User,
-    ExternalLink
+    ExternalLink,
+    FolderPlus
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useMovie, useDeleteMovie } from '../hooks/useMovies';
@@ -21,6 +22,7 @@ import Button from '../components/common/Button';
 import Modal from '../components/common/Modal';
 import { getPosterUrl, getBackdropUrl, formatDate, formatRuntime } from '../utils/helpers';
 import TrailerPlayer from '../components/movies/TrailerPlayer';
+import AddToCollectionModal from '../components/collections/AddToCollectionModal';
 import { useState } from 'react';
 
 export default function MovieDetailPage() {
@@ -28,6 +30,7 @@ export default function MovieDetailPage() {
     const navigate = useNavigate();
     const { user } = useAuth();
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+    const [isCollectionModalOpen, setIsCollectionModalOpen] = useState(false);
 
     const { data, isLoading, error } = useMovie(id);
     const deleteMovie = useDeleteMovie();
@@ -109,20 +112,30 @@ export default function MovieDetailPage() {
 
                             {/* Actions */}
                             {isOwner && (
-                                <div className="mt-4 flex gap-2">
+                                <div className="mt-4 space-y-2">
+                                    <div className="flex gap-2">
+                                        <Button
+                                            variant="secondary"
+                                            className="flex-1"
+                                            onClick={() => navigate(`/edit/${movie._id}`)}
+                                            leftIcon={<Edit2 className="w-4 h-4" />}
+                                        >
+                                            Edit
+                                        </Button>
+                                        <Button
+                                            variant="ghost"
+                                            onClick={() => setIsDeleteModalOpen(true)}
+                                        >
+                                            <Trash2 className="w-4 h-4 text-red-500" />
+                                        </Button>
+                                    </div>
                                     <Button
                                         variant="secondary"
-                                        className="flex-1"
-                                        onClick={() => navigate(`/edit/${movie._id}`)}
-                                        leftIcon={<Edit2 className="w-4 h-4" />}
+                                        className="w-full"
+                                        onClick={() => setIsCollectionModalOpen(true)}
+                                        leftIcon={<FolderPlus className="w-4 h-4" />}
                                     >
-                                        Edit
-                                    </Button>
-                                    <Button
-                                        variant="ghost"
-                                        onClick={() => setIsDeleteModalOpen(true)}
-                                    >
-                                        <Trash2 className="w-4 h-4 text-red-500" />
+                                        Add to Collection
                                     </Button>
                                 </div>
                             )}
@@ -325,6 +338,14 @@ export default function MovieDetailPage() {
                     </div>
                 </div>
             </Modal>
+
+            {/* Add to Collection Modal */}
+            <AddToCollectionModal
+                isOpen={isCollectionModalOpen}
+                onClose={() => setIsCollectionModalOpen(false)}
+                movieId={movie._id}
+                movieTitle={movie.title}
+            />
         </div>
     );
 }

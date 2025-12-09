@@ -9,6 +9,8 @@ import EditMoviePage from './pages/EditMoviePage';
 import MovieDetailPage from './pages/MovieDetailPage';
 import StatsPage from './pages/StatsPage';
 import WatchlistPage from './pages/WatchlistPage';
+import CollectionsPage from './pages/CollectionsPage';
+import CollectionDetailPage from './pages/CollectionDetailPage';
 import NotFoundPage from './pages/NotFoundPage';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 
@@ -37,6 +39,22 @@ function App() {
                     element={
                         <ProtectedRoute>
                             <WatchlistPage />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="collections"
+                    element={
+                        <ProtectedRoute>
+                            <CollectionsPage />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="collections/:id"
+                    element={
+                        <ProtectedRoute>
+                            <CollectionDetailPage />
                         </ProtectedRoute>
                     }
                 />

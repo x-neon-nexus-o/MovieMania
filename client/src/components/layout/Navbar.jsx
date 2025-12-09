@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Menu, X, Sun, Moon, LogIn, LogOut, User, Film, Plus, Bookmark } from 'lucide-react';
+import { Menu, X, Sun, Moon, LogIn, LogOut, User, Film, Plus, Bookmark, FolderOpen } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -53,6 +53,10 @@ export default function Navbar() {
                                 <NavLink to="/watchlist" className={navLinkClass}>
                                     <Bookmark className="w-4 h-4 inline mr-1" />
                                     Watchlist
+                                </NavLink>
+                                <NavLink to="/collections" className={navLinkClass}>
+                                    <FolderOpen className="w-4 h-4 inline mr-1" />
+                                    Collections
                                 </NavLink>
                                 <NavLink to="/add" className={navLinkClass}>
                                     <Plus className="w-4 h-4 inline mr-1" />
@@ -175,6 +179,14 @@ export default function Navbar() {
                                     >
                                         <Bookmark className="w-4 h-4 inline mr-1" />
                                         Watchlist
+                                    </NavLink>
+                                    <NavLink
+                                        to="/collections"
+                                        className={navLinkClass}
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        <FolderOpen className="w-4 h-4 inline mr-1" />
+                                        Collections
                                     </NavLink>
                                     <NavLink
                                         to="/add"
