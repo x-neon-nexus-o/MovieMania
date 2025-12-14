@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Menu, X, Sun, Moon, LogIn, LogOut, User, Film, Plus, Bookmark, FolderOpen, Sparkles } from 'lucide-react';
+import { Menu, X, Sun, Moon, LogIn, LogOut, User, Film, Plus, Bookmark, FolderOpen, Sparkles, Tv } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
@@ -41,6 +41,10 @@ export default function Navbar() {
                     <div className="hidden md:flex items-center gap-1">
                         <NavLink to="/" end className={navLinkClass}>
                             Movies
+                        </NavLink>
+                        <NavLink to="/tv" className={navLinkClass}>
+                            <Tv className="w-4 h-4 inline mr-1" />
+                            TV Shows
                         </NavLink>
                         <NavLink to="/stats" className={navLinkClass}>
                             Stats
@@ -159,6 +163,14 @@ export default function Navbar() {
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Movies
+                            </NavLink>
+                            <NavLink
+                                to="/tv"
+                                className={navLinkClass}
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                <Tv className="w-4 h-4 inline mr-1" />
+                                TV Shows
                             </NavLink>
                             <NavLink
                                 to="/stats"

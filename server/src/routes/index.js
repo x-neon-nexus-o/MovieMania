@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import authRoutes from './authRoutes.js';
 import movieRoutes from './movieRoutes.js';
+import tvShowRoutes from './tvShowRoutes.js';
 import tmdbRoutes from './tmdbRoutes.js';
 import statsRoutes from './statsRoutes.js';
 import watchlistRoutes from './watchlistRoutes.js';
@@ -23,6 +24,7 @@ router.get('/health', (req, res) => {
 // Mount routes
 router.use('/auth', authRoutes);
 router.use('/movies', movieRoutes);
+router.use('/tvshows', tvShowRoutes);
 router.use('/tmdb', tmdbRoutes);
 router.use('/stats', statsRoutes);
 router.use('/watchlist', watchlistRoutes);
@@ -32,3 +34,4 @@ router.use('/import', importRoutes);
 router.use('/recommendations', recommendationRoutes);
 
 export default router;
+

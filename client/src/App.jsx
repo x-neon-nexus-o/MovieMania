@@ -20,6 +20,12 @@ const CollectionsPage = lazy(() => import('./pages/CollectionsPage'));
 const CollectionDetailPage = lazy(() => import('./pages/CollectionDetailPage'));
 const RecommendationsPage = lazy(() => import('./pages/RecommendationsPage'));
 
+// TV Show pages
+const TVShowsPage = lazy(() => import('./pages/TVShowsPage'));
+const TVShowDetailPage = lazy(() => import('./pages/TVShowDetailPage'));
+const AddTVShowPage = lazy(() => import('./pages/AddTVShowPage'));
+const EditTVShowPage = lazy(() => import('./pages/EditTVShowPage'));
+
 function App() {
     return (
         <ErrorBoundary>
@@ -32,6 +38,26 @@ function App() {
                         <Route path="register" element={<RegisterPage />} />
                         <Route path="movie/:id" element={<MovieDetailPage />} />
                         <Route path="stats" element={<StatsPage />} />
+
+                        {/* TV Show routes */}
+                        <Route path="tv" element={<TVShowsPage />} />
+                        <Route path="tv/:id" element={<TVShowDetailPage />} />
+                        <Route
+                            path="tv/add"
+                            element={
+                                <ProtectedRoute>
+                                    <AddTVShowPage />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="tv/edit/:id"
+                            element={
+                                <ProtectedRoute>
+                                    <EditTVShowPage />
+                                </ProtectedRoute>
+                            }
+                        />
 
                         {/* Protected routes */}
                         <Route
