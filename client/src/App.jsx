@@ -25,6 +25,8 @@ const TVShowsPage = lazy(() => import('./pages/TVShowsPage'));
 const TVShowDetailPage = lazy(() => import('./pages/TVShowDetailPage'));
 const AddTVShowPage = lazy(() => import('./pages/AddTVShowPage'));
 const EditTVShowPage = lazy(() => import('./pages/EditTVShowPage'));
+const TVWatchlistPage = lazy(() => import('./pages/TVWatchlistPage'));
+const AddToTVWatchlistPage = lazy(() => import('./pages/AddToTVWatchlistPage'));
 
 function App() {
     return (
@@ -55,6 +57,22 @@ function App() {
                             element={
                                 <ProtectedRoute>
                                     <EditTVShowPage />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="tv/watchlist"
+                            element={
+                                <ProtectedRoute>
+                                    <TVWatchlistPage />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="tv/watchlist/add"
+                            element={
+                                <ProtectedRoute>
+                                    <AddToTVWatchlistPage />
                                 </ProtectedRoute>
                             }
                         />

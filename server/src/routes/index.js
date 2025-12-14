@@ -5,10 +5,12 @@ import tvShowRoutes from './tvShowRoutes.js';
 import tmdbRoutes from './tmdbRoutes.js';
 import statsRoutes from './statsRoutes.js';
 import watchlistRoutes from './watchlistRoutes.js';
+import watchlistTVRoutes from './watchlistTVRoutes.js';
 import collectionRoutes from './collectionRoutes.js';
 import exportRoutes from './exportRoutes.js';
 import importRoutes from './importRoutes.js';
 import recommendationRoutes from './recommendationRoutes.js';
+
 
 const router = Router();
 
@@ -28,6 +30,7 @@ router.use('/tvshows', tvShowRoutes);
 router.use('/tmdb', tmdbRoutes);
 router.use('/stats', statsRoutes);
 router.use('/watchlist', watchlistRoutes);
+router.use('/watchlist-tv', watchlistTVRoutes);
 router.use('/collections', collectionRoutes);
 router.use('/export', exportRoutes);
 router.use('/import', importRoutes);

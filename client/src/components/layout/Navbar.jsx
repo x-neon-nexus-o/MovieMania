@@ -110,7 +110,8 @@ export default function Navbar() {
     const libraryItems = [
         { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard', description: 'Your personal overview' },
         { to: '/for-you', icon: Sparkles, label: 'For You', description: 'Personalized recommendations', iconColor: 'text-amber-500' },
-        { to: '/watchlist', icon: Bookmark, label: 'Watchlist', description: 'Movies to watch later' },
+        { to: '/watchlist', icon: Bookmark, label: 'Movie Watchlist', description: 'Movies to watch later' },
+        { to: '/tv/watchlist', icon: Tv, label: 'TV Watchlist', description: 'TV shows to watch later', iconColor: 'text-cyan-500' },
         { to: '/collections', icon: FolderOpen, label: 'Collections', description: 'Organize your movies' },
     ];
 
