@@ -4,7 +4,7 @@
 
 <img src="https://img.shields.io/badge/MovieMania-Your%20Personal%20Cinema-6366f1?style=for-the-badge&logo=film&logoColor=white" alt="MovieMania" />
 
-### **Track what you watch. Discover what's next. Own your movie journey.**
+### **Track what you watch. Discover what's next. Own your entertainment journey.**
 
 <br />
 
@@ -17,7 +17,7 @@
 
 <br />
 
-[🚀 Quick Start](#-quick-start) • [✨ Features](#-feature-highlights) • [📖 Documentation](#-documentation) • [🛠️ Tech Stack](#️-tech-stack)
+[🚀 Quick Start](#-quick-start) • [✨ Features](#-feature-highlights) • [📺 TV Shows](#-tv-shows-tracking) • [📖 Documentation](#-documentation) • [🛠️ Tech Stack](#️-tech-stack)
 
 ---
 
@@ -25,7 +25,7 @@
 
 ## 🎯 What is MovieMania?
 
-MovieMania is a **full-featured movie tracking platform** built with the MERN stack. It's designed for movie enthusiasts who want more than just a list — they want **insights, organization, and discovery**.
+MovieMania is a **full-featured entertainment tracking platform** built with the MERN stack. Track both **movies and TV shows** with personal ratings, reviews, watch progress, and get personalized recommendations. It's designed for entertainment enthusiasts who want more than just a list — they want **insights, organization, and discovery**.
 
 <table>
 <tr>
@@ -40,11 +40,31 @@ MovieMania is a **full-featured movie tracking platform** built with the MERN st
 </td>
 <td width="50%">
 
+### 📺 For TV Enthusiasts
+- Track TV series with season & episode progress
+- Visual progress bars showing completion percentage
+- Status tracking: Watching, Completed, On Hold, Dropped, Plan to Watch
+- TMDB integration for accurate show metadata
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
 ### 📊 For Data Enthusiasts
 - Beautiful stats dashboard with charts & heatmaps
 - Track your watching streaks and patterns
 - Discover your favorite genres, directors, actors
 - Export your entire collection to CSV or JSON
+
+</td>
+<td width="50%">
+
+### 🎨 Premium UI/UX
+- Modern glassmorphism design with dark mode
+- Smooth animations powered by Framer Motion
+- Responsive layout for all devices
+- Intuitive dropdown navigation
 
 </td>
 </tr>
@@ -71,7 +91,7 @@ cp server/.env.example server/.env
 npm run dev
 ```
 
-Open **http://localhost:5173** and start logging movies! 🎉
+Open **http://localhost:5173** and start tracking! 🎉
 
 <details>
 <summary>📋 <b>What you'll need</b> (click to expand)</summary>
@@ -90,70 +110,123 @@ Open **http://localhost:5173** and start logging movies! 🎉
 
 <table>
 <tr>
-<td align="center" width="25%">
+<td align="center" width="20%">
 <h3>🎬</h3>
 <b>Smart Logging</b><br/>
 <sub>TMDB integration • Ratings • Reviews • Tags</sub>
 </td>
-<td align="center" width="25%">
+<td align="center" width="20%">
+<h3>📺</h3>
+<b>TV Tracking</b><br/>
+<sub>Episodes • Progress bars • Watch status • Seasons</sub>
+</td>
+<td align="center" width="20%">
 <h3>📋</h3>
 <b>Watchlist</b><br/>
 <sub>Priorities • Notes • Target dates • Move to watched</sub>
 </td>
-<td align="center" width="25%">
+<td align="center" width="20%">
 <h3>📁</h3>
 <b>Collections</b><br/>
 <sub>Themed lists • Emoji icons • Auto-posters • Pin favorites</sub>
 </td>
-<td align="center" width="25%">
+<td align="center" width="20%">
 <h3>📊</h3>
 <b>Statistics</b><br/>
 <sub>Charts • Heatmaps • Streaks • Top credits</sub>
 </td>
 </tr>
 <tr>
-<td align="center" width="25%">
+<td align="center" width="20%">
 <h3>🎥</h3>
 <b>Trailers</b><br/>
 <sub>YouTube embeds • Thumbnails • Theater mode</sub>
 </td>
-<td align="center" width="25%">
+<td align="center" width="20%">
 <h3>🌍</h3>
 <b>Where to Watch</b><br/>
 <sub>8 regions • Stream/Rent/Buy • Provider logos</sub>
 </td>
-<td align="center" width="25%">
+<td align="center" width="20%">
 <h3>🤖</h3>
 <b>Recommendations</b><br/>
 <sub>5-signal AI • Taste profile • "Why?" explanations</sub>
 </td>
-<td align="center" width="25%">
+<td align="center" width="20%">
 <h3>🔄</h3>
 <b>Import/Export</b><br/>
 <sub>Letterboxd • IMDb • CSV • JSON</sub>
+</td>
+<td align="center" width="20%">
+<h3>🎨</h3>
+<b>Premium UI</b><br/>
+<sub>Dropdowns • Animations • Dark mode • Responsive</sub>
 </td>
 </tr>
 </table>
 
 ---
 
-### 🤖 Smart Recommendations
+## 📺 TV Shows Tracking
 
-Our recommendation engine doesn't just show popular movies — it learns **your taste**:
+Track your TV series journey with our comprehensive TV show system:
+
+### Watch Status Options
+| Status | Description | Visual |
+|--------|-------------|--------|
+| **Watching** | Currently watching this series | 🔵 Blue badge |
+| **Completed** | Finished all episodes | 🟢 Green badge |
+| **On Hold** | Paused temporarily | 🟡 Yellow badge |
+| **Dropped** | Stopped watching | 🔴 Red badge |
+| **Plan to Watch** | In your queue | 🟣 Purple badge |
+
+### Progress Tracking
+- **Season & Episode tracking**: Know exactly where you left off
+- **Visual progress bar**: See completion percentage at a glance
+- **Animated UI elements**: Smooth progress bar animations
+- **Total episode counts**: Track progress against total episodes
+
+### TV Shows Page Features
+- **Hero Section**: Beautiful gradient header with stats
+- **Status Filter Chips**: Quick filtering by watch status
+- **Card Grid**: Clean, compact TV show cards with:
+  - Poster image with hover effects
+  - Gradient status badges
+  - Progress bar with percentage
+  - Rating stars
+  - Season/episode info
+  - Tags
+
+### Adding TV Shows
+1. Navigate to **Add New → Add TV Show** in the navbar
+2. Search for any TV series via TMDB
+3. Select the show and fill in:
+   - Your rating (1-5 stars)
+   - Watch status
+   - Current season & episode
+   - Start date
+   - Personal review & tags
+4. Click **Add to Collection**
+
+---
+
+## 🤖 Smart Recommendations
+
+Our recommendation engine doesn't just show popular content — it learns **your taste**:
 
 | Signal | Weight | What it does |
 |--------|--------|--------------|
-| **Your Genres** | 40% | Movies matching your top-rated genres |
-| **Similar Films** | 25% | "Because you loved Inception..." |
+| **Your Genres** | 40% | Content matching your top-rated genres |
+| **Similar Titles** | 25% | "Because you loved Inception..." |
 | **Directors/Actors** | 15% | More from creators you love |
 | **Mood Match** | 10% | Based on your recent watching patterns |
 | **Trending** | 10% | Fresh discoveries you might miss |
 
-Navigate to **"For You"** in the navbar to see your personalized picks with explanations.
+Navigate to **Library → For You** in the navbar to see your personalized picks with explanations.
 
 ---
 
-### 🌍 Where to Watch
+## 🌍 Where to Watch
 
 Never wonder "where can I stream this?" again:
 
@@ -163,9 +236,9 @@ Never wonder "where can I stream this?" again:
 
 ---
 
-### 📊 Stats Dashboard
+## 📊 Stats Dashboard
 
-Visualize your movie journey:
+Visualize your entertainment journey:
 
 | Feature | What you'll see |
 |---------|-----------------|
@@ -173,8 +246,22 @@ Visualize your movie journey:
 | **Rating Distribution** | Color-coded from 🔴 to 🟢 |
 | **Activity Heatmap** | GitHub-style calendar of your watching |
 | **Watching Streaks** | Current streak 🔥 and personal best |
-| **Decade Breakdown** | Movies grouped by release era |
+| **Decade Breakdown** | Content grouped by release era |
 | **Top Directors** | Who you've watched most |
+
+---
+
+## 🧭 Navigation Structure
+
+The app uses a clean dropdown-based navigation:
+
+| Dropdown | Contents |
+|----------|----------|
+| **Browse** | Movies • TV Shows • Statistics |
+| **Library** | Dashboard • For You • Watchlist • Collections |
+| **Add New** | Add Movie • Add TV Show |
+
+**Mobile**: Responsive bottom sheet menu with organized sections.
 
 ---
 
@@ -190,19 +277,49 @@ MovieMania/
 │   ├── src/
 │   │   ├── config/          # Database & env config
 │   │   ├── controllers/     # Route handlers
+│   │   │   ├── authController.js
+│   │   │   ├── movieController.js
+│   │   │   ├── tvShowController.js      # TV Show CRUD
+│   │   │   ├── watchlistController.js
+│   │   │   ├── collectionController.js
+│   │   │   ├── statsController.js
+│   │   │   └── recommendationController.js
 │   │   ├── middleware/      # Auth, validation
 │   │   ├── models/          # Mongoose schemas
+│   │   │   ├── User.js
+│   │   │   ├── Movie.js
+│   │   │   ├── TVShow.js                # TV Show model
+│   │   │   ├── WatchlistMovie.js
+│   │   │   ├── WatchlistTVShow.js       # TV Watchlist
+│   │   │   └── Collection.js
 │   │   ├── routes/          # API endpoints
+│   │   │   ├── tvShowRoutes.js          # TV Show routes
+│   │   │   └── ...
 │   │   └── services/        # TMDB, recommendations
+│   │       └── tmdbService.js           # Includes TV methods
 │   └── .env.example
 │
 └── 📂 client/               # React + Vite Frontend
     ├── src/
-    │   ├── components/      # UI components
-    │   ├── pages/           # Route pages
-    │   ├── hooks/           # Custom hooks
+    │   ├── components/
+    │   │   ├── common/      # Buttons, Inputs, Modals
+    │   │   ├── layout/      # Navbar, Footer
+    │   │   ├── movies/      # MovieCard, MovieGrid, MovieForm
+    │   │   └── tv/          # TVShowCard, TVShowGrid, TVShowForm
+    │   ├── pages/
+    │   │   ├── HomePage.jsx
+    │   │   ├── TVShowsPage.jsx          # TV list page
+    │   │   ├── TVShowDetailPage.jsx     # TV detail page
+    │   │   ├── AddTVShowPage.jsx        # Add TV show
+    │   │   ├── EditTVShowPage.jsx       # Edit TV show
+    │   │   └── ...
+    │   ├── hooks/
+    │   │   ├── useMovies.js
+    │   │   └── useTVShows.js            # TV Show hooks
     │   ├── context/         # Auth & Theme
-    │   └── services/        # API layer
+    │   └── services/
+    │       ├── movieService.js
+    │       └── tvShowService.js         # TV API service
     └── tailwind.config.js
 ```
 </details>
@@ -212,17 +329,51 @@ MovieMania/
 
 **Base URL**: `http://localhost:5000/api`
 
+### Authentication
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/auth/register` | Register new user |
+| POST | `/auth/login` | Login & get tokens |
+| POST | `/auth/refresh` | Refresh access token |
+| POST | `/auth/logout` | Invalidate tokens |
+
+### Movies
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/movies` | Get all movies (paginated, filterable) |
+| GET | `/movies/:id` | Get single movie |
+| POST | `/movies` | Add movie to collection |
+| PUT | `/movies/:id` | Update movie |
+| DELETE | `/movies/:id` | Delete movie |
+
+### TV Shows
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/tvshows` | Get all TV shows (paginated, filterable) |
+| GET | `/tvshows/:id` | Get single TV show |
+| POST | `/tvshows` | Add TV show to collection |
+| PUT | `/tvshows/:id` | Update TV show |
+| DELETE | `/tvshows/:id` | Delete TV show |
+
+### TMDB Proxy
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/tmdb/search?query=...` | Search movies |
+| GET | `/tmdb/movie/:id` | Get movie details |
+| GET | `/tmdb/tv/search?query=...` | Search TV shows |
+| GET | `/tmdb/tv/:id` | Get TV show details |
+| GET | `/tmdb/tv/trending` | Trending TV shows |
+| GET | `/tmdb/tv/popular` | Popular TV shows |
+
+### Other Endpoints
 | Endpoint | Description |
 |----------|-------------|
-| `/auth/*` | Register, login, refresh, logout |
-| `/movies/*` | CRUD for your movie collection |
 | `/watchlist/*` | Manage your to-watch list |
 | `/collections/*` | Create & manage themed lists |
 | `/stats/*` | Aggregated viewing statistics |
 | `/recommendations/*` | Personalized suggestions |
 | `/export/*` | Download your data (CSV/JSON) |
 | `/import/*` | Upload from Letterboxd/IMDb |
-| `/tmdb/*` | Proxy to TMDB API |
 
 </details>
 
@@ -258,6 +409,35 @@ PORT=5000
 
 </details>
 
+<details>
+<summary><b>🎨 UI Components</b></summary>
+
+### Common Components
+- **Button** - Primary, Secondary, Ghost, Danger variants
+- **Input** - With icons, validation states
+- **Modal** - Animated modals with backdrop
+- **LoadingSpinner** - Page and inline loaders
+- **StarRating** - Interactive 5-star rating
+- **ShareButton** - Social sharing
+
+### Movie Components
+- **MovieCard** - Poster, rating, date, tags
+- **MovieGrid** - Responsive grid layout
+- **MovieForm** - Add/edit movie form
+- **MovieSearchModal** - TMDB search
+
+### TV Show Components
+- **TVShowCard** - Progress bar, status badge, season/episode
+- **TVShowGrid** - Responsive TV card grid
+- **TVShowForm** - Add/edit TV show form
+- **TVSearchModal** - TMDB TV search
+
+### Layout Components
+- **Navbar** - Dropdown navigation with user menu
+- **Footer** - Links and TMDB attribution
+
+</details>
+
 ---
 
 ## 🛠️ Tech Stack
@@ -278,6 +458,7 @@ PORT=5000
 - bcrypt
 - Helmet Security
 - Rate Limiting
+- CORS
 
 </td>
 <td>
@@ -289,6 +470,9 @@ PORT=5000
 - TanStack Query
 - Framer Motion
 - Recharts
+- Lucide Icons
+- React Hook Form
+- Zod Validation
 
 </td>
 <td>
@@ -307,6 +491,7 @@ PORT=5000
 
 | Status | Feature |
 |--------|---------|
+| ✅ | Movie tracking with ratings & reviews |
 | ✅ | Watchlist with priorities |
 | ✅ | YouTube trailer integration |
 | ✅ | Advanced statistics dashboard |
@@ -316,7 +501,10 @@ PORT=5000
 | ✅ | Import from Letterboxd/IMDb |
 | ✅ | Social sharing |
 | ✅ | AI-powered recommendations |
-| 🔜 | TV shows support |
+| ✅ | **TV shows support** |
+| ✅ | Premium dropdown navigation |
+| 🔜 | TV show watchlist |
+| 🔜 | Episode-level tracking |
 | 🔜 | Mobile app (React Native) |
 
 ---
@@ -335,7 +523,7 @@ We welcome contributions! Here's how:
 
 ## 🙏 Acknowledgments
 
-- [TMDB](https://www.themoviedb.org/) — Movie data & metadata
+- [TMDB](https://www.themoviedb.org/) — Movie & TV data
 - [JustWatch](https://www.justwatch.com/) — Streaming availability
 - [Tailwind CSS](https://tailwindcss.com/) — Utility-first CSS
 - [Recharts](https://recharts.org/) — Beautiful charts
@@ -346,7 +534,7 @@ We welcome contributions! Here's how:
 
 <div align="center">
 
-**Made with ❤️ for movie lovers**
+**Made with ❤️ for entertainment lovers**
 
 <sub>This product uses the TMDB API but is not endorsed or certified by TMDB.</sub>
 
