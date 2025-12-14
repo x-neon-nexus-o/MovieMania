@@ -159,8 +159,8 @@ Open **http://localhost:5173** and start tracking! 🎉
 </td>
 <td align="center" width="20%">
 <h3>🎨</h3>
-<b>Premium UI</b><br/>
-<sub>Dropdowns • Animations • Dark mode • Responsive</sub>
+<b>Theme System</b><br/>
+<sub>4 modes • 6 accents • Accessibility • Reading mode</sub>
 </td>
 </tr>
 </table>
@@ -258,10 +258,43 @@ The app uses a clean dropdown-based navigation:
 | Dropdown | Contents |
 |----------|----------|
 | **Browse** | Movies • TV Shows • Statistics |
-| **Library** | Dashboard • For You • Watchlist • Collections |
+| **Library** | Dashboard • For You • Movie Watchlist • TV Watchlist • Collections |
 | **Add New** | Add Movie • Add TV Show |
 
 **Mobile**: Responsive bottom sheet menu with organized sections.
+
+---
+
+## 🌙 Enhanced Theme System
+
+Customize your viewing experience with our comprehensive appearance settings:
+
+### Theme Modes
+| Mode | Description |
+|------|-------------|
+| **Light** | Bright and clean for daytime use |
+| **Dark** | Easy on the eyes, reduced eye strain |
+| **OLED** | Pure black (#000000) backgrounds, saves battery on OLED displays |
+| **Auto** | Automatically follows your system preference |
+
+### Custom Accent Colors
+Choose from 6 beautiful accent colors to personalize your experience:
+- 💜 **Indigo** (default) • 💟 **Purple** • 💙 **Blue** • 🩵 **Teal** • 💗 **Rose** • 🧡 **Amber**
+
+### Accessibility Features
+| Mode | Description |
+|------|-------------|
+| **Protanopia** | Red-blind friendly color palette |
+| **Deuteranopia** | Green-blind friendly color palette |
+| **Tritanopia** | Blue-blind friendly color palette |
+
+### Reading Mode
+Toggle reading mode for better typography when reading reviews and long descriptions:
+- Larger font size
+- Increased line height
+- Constrained width for comfortable reading
+
+**Access**: Click the ⚙️ settings icon in the navbar to customize all appearance options.
 
 ---
 

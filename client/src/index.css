@@ -4,6 +4,129 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===== CSS Custom Properties ===== */
+:root {
+    /* Default accent color (Indigo) - set by JS */
+    --accent-50: #eef2ff;
+    --accent-100: #e0e7ff;
+    --accent-200: #c7d2fe;
+    --accent-300: #a5b4fc;
+    --accent-400: #818cf8;
+    --accent-500: #6366f1;
+    --accent-600: #4f46e5;
+    --accent-700: #4338ca;
+    --accent-800: #3730a3;
+    --accent-900: #312e81;
+
+    /* Reading mode font settings */
+    --reading-font-size: 1.125rem;
+    --reading-line-height: 1.85;
+    --reading-max-width: 75ch;
+}
+
+/* ===== OLED Theme (Pure Black) ===== */
+.oled {
+    --bg-primary: #000000;
+    --bg-secondary: #0a0a0a;
+    --bg-tertiary: #111111;
+    --border-color: #1a1a1a;
+}
+
+.oled body {
+    background-color: #000000 !important;
+}
+
+.oled .glass {
+    background: rgba(0, 0, 0, 0.9) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.oled .card {
+    background: #0a0a0a !important;
+    border-color: #1a1a1a !important;
+}
+
+.oled .bg-gray-900 {
+    background-color: #000000 !important;
+}
+
+.oled .bg-gray-950 {
+    background-color: #000000 !important;
+}
+
+.oled .dark\:bg-gray-900 {
+    background-color: #000000 !important;
+}
+
+.oled .dark\:bg-gray-950 {
+    background-color: #000000 !important;
+}
+
+.oled .dark\:bg-gray-800 {
+    background-color: #0a0a0a !important;
+}
+
+/* ===== Color-Blind Accessibility Modes ===== */
+
+/* Protanopia (Red-Blind) */
+[data-accessibility="protanopia"] {
+    filter: url('#protanopia-filter');
+}
+
+/* Deuteranopia (Green-Blind) */
+[data-accessibility="deuteranopia"] {
+    filter: url('#deuteranopia-filter');
+}
+
+/* Tritanopia (Blue-Blind) */
+[data-accessibility="tritanopia"] {
+    filter: url('#tritanopia-filter');
+}
+
+/* High contrast mode for accessibility */
+[data-accessibility="protanopia"] .badge,
+[data-accessibility="deuteranopia"] .badge,
+[data-accessibility="tritanopia"] .badge {
+    border: 2px solid currentColor;
+}
+
+/* ===== Reading Mode ===== */
+.reading-mode .prose,
+.reading-mode [data-reading-content] {
+    font-size: var(--reading-font-size);
+    line-height: var(--reading-line-height);
+    max-width: var(--reading-max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reading-mode .review-text,
+.reading-mode .movie-overview,
+.reading-mode .tv-overview {
+    font-size: 1.125rem;
+    line-height: 1.85;
+    letter-spacing: 0.01em;
+}
+
+/* ===== Accent Color Override Classes ===== */
+/* These use CSS variables set by ThemeContext */
+.accent-primary {
+    color: var(--accent-600);
+}
+
+.accent-bg {
+    background-color: var(--accent-600);
+}
+
+.accent-bg-light {
+    background-color: var(--accent-100);
+}
+
+.dark .accent-bg-light {
+    background-color: var(--accent-900);
+    opacity: 0.3;
+}
+
 /* Base styles */
 @layer base {
     html {
@@ -33,6 +156,10 @@
 
     ::-webkit-scrollbar-track {
         @apply bg-gray-100 dark:bg-gray-900;
+    }
+
+    .oled ::-webkit-scrollbar-track {
+        background-color: #000000;
     }
 
     ::-webkit-scrollbar-thumb {

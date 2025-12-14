@@ -11,6 +11,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { cn } from '../../utils/helpers';
 import Button from '../common/Button';
 import TMDBLogo from '../common/TMDBLogo';
+import { ThemeSettingsButton } from '../settings/ThemeSettings';
 
 // Dropdown component
 function NavDropdown({ label, icon: Icon, items, isOpen, onToggle, onClose }) {
@@ -184,18 +185,8 @@ export default function Navbar() {
                             <TMDBLogo height="h-3" />
                         </a>
 
-                        {/* Theme Toggle */}
-                        <button
-                            onClick={toggleTheme}
-                            className="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                            aria-label="Toggle theme"
-                        >
-                            {theme === 'dark' ? (
-                                <Sun className="w-5 h-5" />
-                            ) : (
-                                <Moon className="w-5 h-5" />
-                            )}
-                        </button>
+                        {/* Theme Settings */}
+                        <ThemeSettingsButton />
 
                         {/* Auth Buttons */}
                         <div className="hidden md:flex items-center gap-2">
