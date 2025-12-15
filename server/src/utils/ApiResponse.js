@@ -38,6 +38,15 @@ class ApiResponse {
     static paginated(res, items, pagination, message = 'Success') {
         return new ApiResponse(200, { items, pagination }, message).send(res);
     }
+
+    static error(res, message = 'Internal Server Error', statusCode = 500, errors = []) {
+        return res.status(statusCode).json({
+            success: false,
+            message: message,
+            errors: errors,
+            data: null
+        });
+    }
 }
 
 export default ApiResponse;

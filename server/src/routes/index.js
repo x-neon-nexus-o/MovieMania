@@ -10,24 +10,21 @@ import collectionRoutes from './collectionRoutes.js';
 import exportRoutes from './exportRoutes.js';
 import importRoutes from './importRoutes.js';
 import recommendationRoutes from './recommendationRoutes.js';
+import aiRoutes from './aiRoutes.js';
 
 
 const router = Router();
 
-// API health check
+// API Health Check
 router.get('/health', (req, res) => {
-    res.json({
-        success: true,
-        message: 'MovieMania API is running',
-        timestamp: new Date().toISOString()
-    });
+    res.status(200).json({ status: 'ok', message: 'API is running' });
 });
 
 // Mount routes
 router.use('/auth', authRoutes);
+router.use('/tmdb', tmdbRoutes);
 router.use('/movies', movieRoutes);
 router.use('/tvshows', tvShowRoutes);
-router.use('/tmdb', tmdbRoutes);
 router.use('/stats', statsRoutes);
 router.use('/watchlist', watchlistRoutes);
 router.use('/watchlist-tv', watchlistTVRoutes);
@@ -35,6 +32,6 @@ router.use('/collections', collectionRoutes);
 router.use('/export', exportRoutes);
 router.use('/import', importRoutes);
 router.use('/recommendations', recommendationRoutes);
+router.use('/ai', aiRoutes);
 
 export default router;
-

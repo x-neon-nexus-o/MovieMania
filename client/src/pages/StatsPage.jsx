@@ -21,6 +21,7 @@ import { StarRating } from '../components/common/StarRating';
 import { getPosterUrl, formatRuntime } from '../utils/helpers';
 
 // Chart Components
+import InsightsDashboard from '../components/ai/InsightsDashboard';
 import GenrePieChart from '../components/stats/GenrePieChart';
 import RatingBarChart from '../components/stats/RatingBarChart';
 import TimelineChart from '../components/stats/TimelineChart';
@@ -112,6 +113,11 @@ export default function StatsPage() {
                 </motion.div>
             </div>
 
+            {/* AI Insights - NEW */}
+            <div className="mb-12">
+                <InsightsDashboard />
+            </div>
+
             {/* Main Stat Cards - Enhanced */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                 <StatCard
@@ -148,27 +154,31 @@ export default function StatsPage() {
             </div>
 
             {/* Streak Card */}
-            {streaksData && (
-                <div className="mb-8">
-                    <StreakCard data={streaksData} />
-                </div>
-            )}
+            {
+                streaksData && (
+                    <div className="mb-8">
+                        <StreakCard data={streaksData} />
+                    </div>
+                )
+            }
 
             {/* Timeline Chart */}
-            {timeline.length > 0 && (
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="card p-6 mb-8"
-                >
-                    <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                        <Calendar className="w-5 h-5 text-primary-500" />
-                        Watching Timeline
-                    </h2>
-                    <TimelineChart data={timeline} height={300} />
-                </motion.div>
-            )}
+            {
+                timeline.length > 0 && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="card p-6 mb-8"
+                    >
+                        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                            <Calendar className="w-5 h-5 text-primary-500" />
+                            Watching Timeline
+                        </h2>
+                        <TimelineChart data={timeline} height={300} />
+                    </motion.div>
+                )
+            }
 
             {/* Heatmap */}
             <motion.div
@@ -356,35 +366,37 @@ export default function StatsPage() {
             </div>
 
             {/* Top Rated Movie Card */}
-            {stats?.topRatedMovie && (
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.0 }}
-                    className="card p-6"
-                >
-                    <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                        <Heart className="w-5 h-5 text-red-500" />
-                        Your Top Rated Movie
-                    </h2>
-                    <div className="flex gap-6">
-                        <img
-                            src={getPosterUrl(stats.topRatedMovie.posterPath, 'medium')}
-                            alt={stats.topRatedMovie.title}
-                            className="w-32 h-48 object-cover rounded-xl shadow-lg"
-                        />
-                        <div>
-                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-                                {stats.topRatedMovie.title}
-                            </h3>
-                            <p className="text-gray-500 dark:text-gray-400 mb-4">
-                                {stats.topRatedMovie.year}
-                            </p>
-                            <StarRating rating={stats.topRatedMovie.myRating} size="lg" showValue />
+            {
+                stats?.topRatedMovie && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1.0 }}
+                        className="card p-6"
+                    >
+                        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                            <Heart className="w-5 h-5 text-red-500" />
+                            Your Top Rated Movie
+                        </h2>
+                        <div className="flex gap-6">
+                            <img
+                                src={getPosterUrl(stats.topRatedMovie.posterPath, 'medium')}
+                                alt={stats.topRatedMovie.title}
+                                className="w-32 h-48 object-cover rounded-xl shadow-lg"
+                            />
+                            <div>
+                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
+                                    {stats.topRatedMovie.title}
+                                </h3>
+                                <p className="text-gray-500 dark:text-gray-400 mb-4">
+                                    {stats.topRatedMovie.year}
+                                </p>
+                                <StarRating rating={stats.topRatedMovie.myRating} size="lg" showValue />
+                            </div>
                         </div>
-                    </div>
-                </motion.div>
-            )}
-        </div>
+                    </motion.div>
+                )
+            }
+        </div >
     );
 }

@@ -7,6 +7,7 @@ import Input from '../common/Input';
 import Button from '../common/Button';
 import { StarRatingInput } from '../common/StarRating';
 import { getPosterUrl } from '../../utils/helpers';
+import AIReviewAssistant from '../ai/AIReviewAssistant';
 
 const tvShowFormSchema = z.object({
     myRating: z.number().min(0).max(5),
@@ -70,6 +71,8 @@ export default function TVShowForm({
     const isFavorite = watch('isFavorite');
     const isPublic = watch('isPublic');
     const watchStatus = watch('watchStatus');
+    const myRating = watch('myRating');
+    const myReview = watch('myReview');
 
     const handleAddTag = (e) => {
         e.preventDefault();
@@ -223,9 +226,23 @@ export default function TVShowForm({
 
                     {/* Review */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
-                            Your Review
-                        </label>
+                        <div className="flex justify-between items-center mb-1.5">
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                Your Review
+                            </label>
+                            <AIReviewAssistant
+                                movieTitle={tvShow.name}
+                                rating={myRating}
+                                genres={tvShow.genres?.map(g => g.name || g) || []}
+                                currentReview={myReview}
+                                onUpdateReview={(text) => setValue('myReview', text, { shouldDirty: true })}
+                                onAddTags={(newTags) => {
+                                    const currentTags = tags || [];
+                                    const uniqueTags = [...new Set([...currentTags, ...newTags])].slice(0, 10);
+                                    setValue('tags', uniqueTags, { shouldDirty: true });
+                                }}
+                            />
+                        </div>
                         <textarea
                             rows={4}
                             placeholder="What did you think about this TV show?"

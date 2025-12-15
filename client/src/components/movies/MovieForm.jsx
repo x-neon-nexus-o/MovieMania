@@ -7,6 +7,7 @@ import Input from '../common/Input';
 import Button from '../common/Button';
 import { StarRatingInput } from '../common/StarRating';
 import { getPosterUrl } from '../../utils/helpers';
+import AIReviewAssistant from '../ai/AIReviewAssistant';
 
 const movieFormSchema = z.object({
     myRating: z.number().min(0).max(5),
@@ -51,6 +52,8 @@ export default function MovieForm({
     const tags = watch('tags') || [];
     const isFavorite = watch('isFavorite');
     const isPublic = watch('isPublic');
+    const myRating = watch('myRating');
+    const myReview = watch('myReview'); // Watch review for AI features
 
     const handleAddTag = (e) => {
         e.preventDefault();
@@ -138,9 +141,23 @@ export default function MovieForm({
 
                     {/* Review */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
-                            Your Review
-                        </label>
+                        <div className="flex justify-between items-center mb-1.5">
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                Your Review
+                            </label>
+                            <AIReviewAssistant
+                                movieTitle={movie.title}
+                                rating={myRating}
+                                genres={movie.genres?.map(g => g.name || g) || []}
+                                currentReview={myReview}
+                                onUpdateReview={(text) => setValue('myReview', text, { shouldDirty: true })}
+                                onAddTags={(newTags) => {
+                                    const currentTags = tags || [];
+                                    const uniqueTags = [...new Set([...currentTags, ...newTags])].slice(0, 10);
+                                    setValue('tags', uniqueTags, { shouldDirty: true });
+                                }}
+                            />
+                        </div>
                         <textarea
                             rows={4}
                             placeholder="What did you think about this movie?"
@@ -222,8 +239,8 @@ export default function MovieForm({
                             />
                             <div
                                 className={`p-2 rounded-lg transition-colors ${isFavorite
-                                        ? 'bg-red-100 dark:bg-red-900/30 text-red-500'
-                                        : 'bg-gray-100 dark:bg-gray-800 text-gray-400'
+                                    ? 'bg-red-100 dark:bg-red-900/30 text-red-500'
+                                    : 'bg-gray-100 dark:bg-gray-800 text-gray-400'
                                     }`}
                             >
                                 <Heart className={`w-5 h-5 ${isFavorite ? 'fill-current' : ''}`} />
@@ -242,8 +259,8 @@ export default function MovieForm({
                             />
                             <div
                                 className={`p-2 rounded-lg transition-colors ${isPublic
-                                        ? 'bg-green-100 dark:bg-green-900/30 text-green-500'
-                                        : 'bg-gray-100 dark:bg-gray-800 text-gray-400'
+                                    ? 'bg-green-100 dark:bg-green-900/30 text-green-500'
+                                    : 'bg-gray-100 dark:bg-gray-800 text-gray-400'
                                     }`}
                             >
                                 {isPublic ? <Globe className="w-5 h-5" /> : <Lock className="w-5 h-5" />}
