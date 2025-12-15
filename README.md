@@ -149,8 +149,8 @@ Open **http://localhost:5173** and start tracking! 🎉
 </td>
 <td align="center" width="20%">
 <h3>🤖</h3>
-<b>Recommendations</b><br/>
-<sub>5-signal AI • Taste profile • "Why?" explanations</sub>
+<b>AI Features</b><br/>
+<sub>Smart Search • Predictive Ratings • Review Assistant • Insights</sub>
 </td>
 <td align="center" width="20%">
 <h3>🔄</h3>
@@ -207,6 +207,52 @@ Track your TV series journey with our comprehensive TV show system:
    - Start date
    - Personal review & tags
 4. Click **Add to Collection**
+
+---
+
+## 🤖 AI-Powered Features
+
+MovieMania integrates **Google Gemini AI** to supercharge your entertainment experience:
+
+### 🔍 Smart Search (NLP)
+Search using natural language instead of filters:
+
+| Query Example | What it does |
+|---------------|-------------|
+| "Sci-fi movies from 2020" | Finds Science Fiction movies released in 2020 |
+| "Comedy with rating above 8" | High-rated comedies |
+| "Movies like Inception but scarier" | AI suggests similar but horror-leaning titles |
+| "80s action classics" | Action movies from 1980-1989 |
+
+The AI parses your query into structured filters (genre, year, rating) and uses TMDB's discovery API.
+
+### ✍️ AI Review Assistant
+Get help writing better reviews:
+
+| Feature | Description |
+|---------|-------------|
+| **Generate Draft** | AI writes a review based on your rating and the movie's genre |
+| **Expand Thoughts** | Turn bullet points into a polished paragraph |
+| **Remove Spoilers** | AI rewrites your review without plot spoilers |
+| **Suggest Tags** | Get AI-recommended tags for your review |
+
+### 🔮 Predictive Ratings
+See how much you'll enjoy a movie **before** watching:
+
+- **Predicted Rating**: AI estimates your rating (0-5 stars) based on your taste profile
+- **Taste Match %**: How well a movie matches your preferences (0-100%)
+- **Why Badges**: Hover to see factors like "Matches your love for Sci-Fi"
+
+Predictions appear on movie cards in search results and the Add Movie modal.
+
+### 📊 Auto-Insights (Stats Dashboard)
+Discover fun facts about your viewing habits:
+
+- **"Nolan Superfan"** — You've watched 5+ Christopher Nolan films
+- **"Weekend Warrior"** — You watch more on weekends
+- **"Genre Explorer"** — Diverse taste across many genres
+
+Find these on your **Statistics** page after rating 5+ movies.
 
 ---
 
@@ -405,6 +451,10 @@ MovieMania/
 | `/collections/*` | Create & manage themed lists |
 | `/stats/*` | Aggregated viewing statistics |
 | `/recommendations/*` | Personalized suggestions |
+| `/ai/search` | Smart NLP-powered search |
+| `/ai/review/*` | AI review assistant endpoints |
+| `/ai/predict/*` | Rating predictions & taste match |
+| `/ai/insights/*` | Auto-generated user insights |
 | `/export/*` | Download your data (CSV/JSON) |
 | `/import/*` | Upload from Letterboxd/IMDb |
 
@@ -421,6 +471,9 @@ MONGODB_URI=mongodb://localhost:27017/moviemania
 JWT_SECRET=your_secret_at_least_32_characters_long
 REFRESH_TOKEN_SECRET=another_secret_key_also_32_chars
 TMDB_API_KEY=your_tmdb_api_key
+
+# AI Features (Optional but recommended)
+GEMINI_API_KEY=your_google_gemini_api_key
 
 # Optional
 NODE_ENV=development
@@ -511,6 +564,7 @@ PORT=5000
 <td>
 
 - TMDB API
+- Google Gemini AI
 - JustWatch (via TMDB)
 - YouTube Embeds
 
@@ -536,6 +590,10 @@ PORT=5000
 | ✅ | AI-powered recommendations |
 | ✅ | **TV shows support** |
 | ✅ | Premium dropdown navigation |
+| ✅ | **AI Smart Search (NLP)** |
+| ✅ | **AI Review Assistant** |
+| ✅ | **Predictive Ratings & Taste Match** |
+| ✅ | **Auto-Insights Dashboard** |
 | 🔜 | TV show watchlist |
 | 🔜 | Episode-level tracking |
 | 🔜 | Mobile app (React Native) |
@@ -562,6 +620,7 @@ We welcome contributions! Here's how:
 - [Recharts](https://recharts.org/) — Beautiful charts
 - [Lucide](https://lucide.dev/) — Icons
 - [Framer Motion](https://www.framer.com/motion/) — Animations
+- [Google Gemini](https://deepmind.google/technologies/gemini/) — AI features
 
 ---
 
