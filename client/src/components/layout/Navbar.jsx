@@ -12,7 +12,6 @@ import { cn } from '../../utils/helpers';
 import Button from '../common/Button';
 import TMDBLogo from '../common/TMDBLogo';
 import { ThemeSettingsButton } from '../settings/ThemeSettings';
-import SmartSearchBar from '../ai/SmartSearchBar';
 
 // Dropdown component
 function NavDropdown({ label, icon: Icon, items, isOpen, onToggle, onClose }) {
@@ -172,11 +171,6 @@ export default function Navbar() {
                                 />
                             </>
                         )}
-                    </div>
-
-                    {/* Smart Search Bar */}
-                    <div className="hidden md:block flex-1 max-w-xl mx-4">
-                        <SmartSearchBar />
                     </div>
 
                     {/* Right side */}
