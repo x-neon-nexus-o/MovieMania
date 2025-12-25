@@ -1,14 +1,13 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenAI } from '@google/genai';
 
 class GeminiService {
     constructor() {
         this.apiKey = process.env.GEMINI_API_KEY;
-        this.genAI = null;
-        this.model = null;
+        this.ai = null;
+        this.model = 'gemini-2.5-flash';
 
         if (this.apiKey) {
-            this.genAI = new GoogleGenerativeAI(this.apiKey);
-            this.model = this.genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+            this.ai = new GoogleGenAI({ apiKey: this.apiKey });
         } else {
             console.warn('GEMINI_API_KEY is not set in environment variables. AI features will be disabled.');
         }
@@ -63,7 +62,7 @@ class GeminiService {
 
     async generateReviewDraft(movieTitle, rating, genres) {
         return this.makeRequestWithRetry(async () => {
-            if (!this.model) throw new Error('AI service not initialized');
+            if (!this.ai) throw new Error('AI service not initialized');
 
             const prompt = `Write a short, engaging movie review for "${movieTitle}" (Genres: ${genres.join(', ')}). 
             The rating is ${rating}/5. 
@@ -71,14 +70,17 @@ class GeminiService {
             Focus on why someone might give this rating.
             Do not include spoilers.`;
 
-            const result = await this.model.generateContent(prompt);
-            return result.response.text();
+            const response = await this.ai.models.generateContent({
+                model: this.model,
+                contents: prompt
+            });
+            return response.text;
         });
     }
 
     async expandThoughts(bulletPoints) {
         return this.makeRequestWithRetry(async () => {
-            if (!this.model) throw new Error('AI service not initialized');
+            if (!this.ai) throw new Error('AI service not initialized');
 
             const prompt = `Expand these bullet points into a cohesive movie review paragraph. 
             Maintain the original tone.
@@ -88,14 +90,17 @@ class GeminiService {
             
             Output only the paragraph.`;
 
-            const result = await this.model.generateContent(prompt);
-            return result.response.text();
+            const response = await this.ai.models.generateContent({
+                model: this.model,
+                contents: prompt
+            });
+            return response.text;
         });
     }
 
     async removeSpoilers(reviewText) {
         return this.makeRequestWithRetry(async () => {
-            if (!this.model) throw new Error('AI service not initialized');
+            if (!this.ai) throw new Error('AI service not initialized');
 
             const prompt = `Rewrite the following movie review to remove any major plot spoilers while keeping the sentiment and opinion intact.
             If there are no spoilers, return the text as is.
@@ -103,14 +108,17 @@ class GeminiService {
             Review:
             "${reviewText}"`;
 
-            const result = await this.model.generateContent(prompt);
-            return result.response.text();
+            const response = await this.ai.models.generateContent({
+                model: this.model,
+                contents: prompt
+            });
+            return response.text;
         });
     }
 
     async analyzeSentiment(text) {
         return this.makeRequestWithRetry(async () => {
-            if (!this.model) throw new Error('AI service not initialized');
+            if (!this.ai) throw new Error('AI service not initialized');
 
             const prompt = `Analyze the sentiment of this movie review.
             Return a JSON object with:
@@ -123,14 +131,17 @@ class GeminiService {
             
             Return ONLY the JSON.`;
 
-            const result = await this.model.generateContent(prompt);
-            return this.cleanJson(result.response.text());
+            const response = await this.ai.models.generateContent({
+                model: this.model,
+                contents: prompt
+            });
+            return this.cleanJson(response.text);
         });
     }
 
     async suggestTags(reviewText) {
         return this.makeRequestWithRetry(async () => {
-            if (!this.model) throw new Error('AI service not initialized');
+            if (!this.ai) throw new Error('AI service not initialized');
 
             const prompt = `Suggest 5 relevant tags for this movie review. 
             Tags should be single words or short phrases (max 2 words).
@@ -139,14 +150,17 @@ class GeminiService {
             Review:
             "${reviewText}"`;
 
-            const result = await this.model.generateContent(prompt);
-            return this.cleanJson(result.response.text());
+            const response = await this.ai.models.generateContent({
+                model: this.model,
+                contents: prompt
+            });
+            return this.cleanJson(response.text);
         });
     }
 
     async parseNaturalQuery(query) {
         return this.makeRequestWithRetry(async () => {
-            if (!this.model) throw new Error('AI service not initialized');
+            if (!this.ai) throw new Error('AI service not initialized');
 
             const prompt = `Parse this natural language movie/TV search query into structured search parameters.
             Query: "${query}"
@@ -162,14 +176,17 @@ class GeminiService {
             
             Return ONLY the JSON.`;
 
-            const result = await this.model.generateContent(prompt);
-            return this.cleanJson(result.response.text());
+            const response = await this.ai.models.generateContent({
+                model: this.model,
+                contents: prompt
+            });
+            return this.cleanJson(response.text);
         });
     }
 
     async findSimilarMovies(movieTitle, modifier) {
         return this.makeRequestWithRetry(async () => {
-            if (!this.model) throw new Error('AI service not initialized');
+            if (!this.ai) throw new Error('AI service not initialized');
 
             const prompt = `Suggest 5 movies that are similar to "${movieTitle}" but are specifically "${modifier}".
             Return a JSON array of objects with:
@@ -178,14 +195,17 @@ class GeminiService {
             
             Return ONLY the JSON.`;
 
-            const result = await this.model.generateContent(prompt);
-            return this.cleanJson(result.response.text());
+            const response = await this.ai.models.generateContent({
+                model: this.model,
+                contents: prompt
+            });
+            return this.cleanJson(response.text);
         });
     }
 
     async predictRating(userTaste, movieData) {
         return this.makeRequestWithRetry(async () => {
-            if (!this.model) throw new Error('AI service not initialized');
+            if (!this.ai) throw new Error('AI service not initialized');
 
             const prompt = `Predict a rating (0-5 stars) for the movie "${movieData.title}" based on this user's taste profile.
             
@@ -206,14 +226,17 @@ class GeminiService {
             
             Return ONLY the JSON.`;
 
-            const result = await this.model.generateContent(prompt);
-            return this.cleanJson(result.response.text());
+            const response = await this.ai.models.generateContent({
+                model: this.model,
+                contents: prompt
+            });
+            return this.cleanJson(response.text);
         });
     }
 
     async calculateTasteMatch(userTaste, movieData) {
         return this.makeRequestWithRetry(async () => {
-            if (!this.model) throw new Error('AI service not initialized');
+            if (!this.ai) throw new Error('AI service not initialized');
 
             const prompt = `Calculate a "Taste Match" percentage for this user and movie.
             
@@ -226,14 +249,17 @@ class GeminiService {
             
             Return ONLY the JSON.`;
 
-            const result = await this.model.generateContent(prompt);
-            return this.cleanJson(result.response.text());
+            const response = await this.ai.models.generateContent({
+                model: this.model,
+                contents: prompt
+            });
+            return this.cleanJson(response.text);
         });
     }
 
     async generateInsights(userProfile) {
         return this.makeRequestWithRetry(async () => {
-            if (!this.model) throw new Error('AI service not initialized');
+            if (!this.ai) throw new Error('AI service not initialized');
 
             const prompt = `Generate 4 fun, personalized insights about this user's movie taste.
             
@@ -253,8 +279,11 @@ class GeminiService {
             
             Return ONLY the JSON.`;
 
-            const result = await this.model.generateContent(prompt);
-            return this.cleanJson(result.response.text());
+            const response = await this.ai.models.generateContent({
+                model: this.model,
+                contents: prompt
+            });
+            return this.cleanJson(response.text);
         });
     }
 }

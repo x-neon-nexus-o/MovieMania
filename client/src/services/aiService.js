@@ -8,7 +8,7 @@ const aiService = {
             rating,
             genres
         });
-        return response.data.data;
+        return response.data.data.draft;
     },
 
     // Expand bullet points into a full review
@@ -16,7 +16,7 @@ const aiService = {
         const response = await api.post('/ai/review/expand', {
             bulletPoints
         });
-        return response.data.data;
+        return response.data.data.review;
     },
 
     // Remove spoilers from review text
@@ -24,7 +24,7 @@ const aiService = {
         const response = await api.post('/ai/review/spoiler-free', {
             reviewText
         });
-        return response.data.data;
+        return response.data.data.cleanText;
     },
 
     // Analyze sentiment of review text
