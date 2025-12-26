@@ -11,6 +11,8 @@ import exportRoutes from './exportRoutes.js';
 import importRoutes from './importRoutes.js';
 import recommendationRoutes from './recommendationRoutes.js';
 import aiRoutes from './aiRoutes.js';
+import integrationRoutes from './integrationRoutes.js';
+import webhookRoutes from './webhookRoutes.js';
 
 
 const router = Router();
@@ -33,5 +35,7 @@ router.use('/export', exportRoutes);
 router.use('/import', importRoutes);
 router.use('/recommendations', recommendationRoutes);
 router.use('/ai', aiRoutes);
+router.use('/integrations', integrationRoutes);
+router.use('/webhooks', webhookRoutes);
 
 export default router;

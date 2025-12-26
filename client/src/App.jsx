@@ -27,6 +27,8 @@ const AddTVShowPage = lazy(() => import('./pages/AddTVShowPage'));
 const EditTVShowPage = lazy(() => import('./pages/EditTVShowPage'));
 const TVWatchlistPage = lazy(() => import('./pages/TVWatchlistPage'));
 const AddToTVWatchlistPage = lazy(() => import('./pages/AddToTVWatchlistPage'));
+const IntegrationsSettings = lazy(() => import('./components/settings/IntegrationsSettings'));
+const TraktCallbackPage = lazy(() => import('./pages/TraktCallbackPage'));
 
 function App() {
     return (
@@ -131,6 +133,23 @@ function App() {
                             element={
                                 <ProtectedRoute>
                                     <RecommendationsPage />
+                                </ProtectedRoute>
+                            }
+                        />
+
+                        <Route
+                            path="settings/integrations"
+                            element={
+                                <ProtectedRoute>
+                                    <IntegrationsSettings />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="settings/integrations/trakt/callback"
+                            element={
+                                <ProtectedRoute>
+                                    <TraktCallbackPage />
                                 </ProtectedRoute>
                             }
                         />

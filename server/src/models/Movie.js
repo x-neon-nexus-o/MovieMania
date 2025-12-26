@@ -103,6 +103,15 @@ const movieSchema = new mongoose.Schema({
     isPublic: {
         type: Boolean,
         default: true
+    },
+    syncedFrom: {
+        type: String,
+        enum: ['manual', 'trakt', 'import'],
+        default: 'manual'
+    },
+    externalIds: {
+        traktId: Number,
+        imdbId: String
     }
 }, {
     timestamps: true,

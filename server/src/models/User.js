@@ -57,6 +57,15 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
+    integrations: {
+        trakt: {
+            accessToken: String,
+            refreshToken: String,
+            tokenExpiresAt: Date,
+            username: String,
+            lastSync: Date
+        }
+    },
     lastLogin: Date
 }, {
     timestamps: true,

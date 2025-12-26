@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import {
     Menu, X, Sun, Moon, LogIn, LogOut, User, Film, Plus, Bookmark,
     FolderOpen, Sparkles, Tv, ChevronDown, BarChart3, LayoutDashboard,
-    Library, Compass, PlusCircle
+    Library, Compass, PlusCircle, Link as LinkIcon
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../../context/AuthContext';
@@ -114,6 +114,7 @@ export default function Navbar() {
         { to: '/watchlist', icon: Bookmark, label: 'Movie Watchlist', description: 'Movies to watch later' },
         { to: '/tv/watchlist', icon: Tv, label: 'TV Watchlist', description: 'TV shows to watch later', iconColor: 'text-cyan-500' },
         { to: '/collections', icon: FolderOpen, label: 'Collections', description: 'Organize your movies' },
+        { to: '/settings/integrations', icon: LinkIcon, label: 'Integrations', description: 'Trakt, Webhooks & Imports' },
     ];
 
     const addItems = [
