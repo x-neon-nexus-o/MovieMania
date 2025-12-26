@@ -493,6 +493,13 @@ PORT=5000
 | `npm run build` | Production build |
 | `npm run install:all` | Install all dependencies |
 
+### Verification Scripts
+| Script | Description |
+|--------|-------------|
+| `node server/verify-ai.js` | Test Generative AI integration & API key |
+| `node server/verify-api.js` | Check API health & Server connectivity |
+| `node server/verify-ai-auth.js` | Verify authenticated API calls (requires local DB) |
+
 </details>
 
 <details>
@@ -594,8 +601,8 @@ PORT=5000
 | ✅ | **AI Review Assistant** |
 | ✅ | **Predictive Ratings & Taste Match** |
 | ✅ | **Auto-Insights Dashboard** |
-| 🔜 | TV show watchlist |
-| 🔜 | Episode-level tracking |
+| ✅ | TV show watchlist |
+| ✅ | Episode-level tracking |
 | 🔜 | Mobile app (React Native) |
 
 ---
