@@ -8,7 +8,7 @@ const aiService = {
             rating,
             genres
         });
-        return response.data.data.draft;
+        return response.data.draft;
     },
 
     // Expand bullet points into a full review
@@ -16,7 +16,7 @@ const aiService = {
         const response = await api.post('/ai/review/expand', {
             bulletPoints
         });
-        return response.data.data.review;
+        return response.data.review;
     },
 
     // Remove spoilers from review text
@@ -24,7 +24,7 @@ const aiService = {
         const response = await api.post('/ai/review/spoiler-free', {
             reviewText
         });
-        return response.data.data.cleanText;
+        return response.data.cleanText;
     },
 
     // Analyze sentiment of review text
@@ -32,7 +32,7 @@ const aiService = {
         const response = await api.post('/ai/review/analyze', {
             text
         });
-        return response.data.data;
+        return response.data;
     },
 
     // Suggest tags based on review content
@@ -40,7 +40,7 @@ const aiService = {
         const response = await api.post('/ai/review/suggest-tags', {
             reviewText
         });
-        return response.data.data;
+        return response.data;
     },
 
     // Natural language search
@@ -48,25 +48,25 @@ const aiService = {
         const response = await api.post('/ai/search', {
             query
         });
-        return response.data.data;
+        return response.data;
     },
 
     // Predict rating for a movie
     predictRating: async (tmdbId, type = 'movie') => {
         const response = await api.get(`/ai/predict/rating/${tmdbId}/${type}`);
-        return response.data.data;
+        return response.data;
     },
 
     // Calculate taste match percentage
     getTasteMatch: async (tmdbId, type = 'movie') => {
         const response = await api.get(`/ai/predict/match/${tmdbId}/${type}`);
-        return response.data.data;
+        return response.data;
     },
 
     // Get auto-generated insights
     getAutoInsights: async () => {
         const response = await api.get('/ai/insights/dashboard');
-        return response.data.data;
+        return response.data;
     }
 };
 
