@@ -11,7 +11,8 @@ import {
     Tag,
     ExternalLink,
     Tv,
-    Play
+    Play,
+    BarChart3
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useTVShow, useDeleteTVShow } from '../hooks/useTVShows';
@@ -236,6 +237,15 @@ export default function TVShowDetailPage() {
                                     TMDB
                                 </a>
                             )}
+                            {tvShow.tmdbId && (
+                                <Link
+                                    to={`/tv/${tvShow.tmdbId}/analytics`}
+                                    className="flex items-center gap-1 text-primary-600 hover:text-primary-700 font-medium"
+                                >
+                                    <BarChart3 className="w-4 h-4" />
+                                    Analytics
+                                </Link>
+                            )}
                         </div>
 
                         {/* Progress */}
@@ -263,8 +273,8 @@ export default function TVShowDetailPage() {
                                             animate={{ width: `${progressPercent}%` }}
                                             transition={{ duration: 0.8, ease: 'easeOut' }}
                                             className={`h-full rounded-full ${tvShow.watchStatus === 'completed'
-                                                    ? 'bg-gradient-to-r from-emerald-400 to-green-500'
-                                                    : 'bg-gradient-to-r from-primary-500 to-primary-600'
+                                                ? 'bg-gradient-to-r from-emerald-400 to-green-500'
+                                                : 'bg-gradient-to-r from-primary-500 to-primary-600'
                                                 }`}
                                         />
                                     </div>

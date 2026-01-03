@@ -27,6 +27,8 @@ const AddTVShowPage = lazy(() => import('./pages/AddTVShowPage'));
 const EditTVShowPage = lazy(() => import('./pages/EditTVShowPage'));
 const TVWatchlistPage = lazy(() => import('./pages/TVWatchlistPage'));
 const AddToTVWatchlistPage = lazy(() => import('./pages/AddToTVWatchlistPage'));
+const TVAnalyticsPage = lazy(() => import('./pages/TVAnalyticsPage'));
+const CompareShowsPage = lazy(() => import('./pages/CompareShowsPage'));
 const IntegrationsSettings = lazy(() => import('./components/settings/IntegrationsSettings'));
 const TraktCallbackPage = lazy(() => import('./pages/TraktCallbackPage'));
 
@@ -78,6 +80,8 @@ function App() {
                                 </ProtectedRoute>
                             }
                         />
+                        <Route path="tv/:tmdbShowId/analytics" element={<TVAnalyticsPage />} />
+                        <Route path="tv/compare" element={<CompareShowsPage />} />
 
                         {/* Protected routes */}
                         <Route

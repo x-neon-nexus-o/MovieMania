@@ -13,6 +13,7 @@ import recommendationRoutes from './recommendationRoutes.js';
 import aiRoutes from './aiRoutes.js';
 import integrationRoutes from './integrationRoutes.js';
 import webhookRoutes from './webhookRoutes.js';
+import episodeRoutes from './episodeRoutes.js';
 
 
 const router = Router();
@@ -37,5 +38,6 @@ router.use('/recommendations', recommendationRoutes);
 router.use('/ai', aiRoutes);
 router.use('/integrations', integrationRoutes);
 router.use('/webhooks', webhookRoutes);
+router.use('/episodes', episodeRoutes);
 
 export default router;
