@@ -208,6 +208,26 @@ Track your TV series journey with our comprehensive TV show system:
    - Personal review & tags
 4. Click **Add to Collection**
 
+### 📊 TV Analytics (SeriesPulse)
+
+Get deep insights into any TV show's episode ratings and quality trends:
+
+| Feature | Description |
+|---------|-------------|
+| **Season Ratings Chart** | Bar chart showing average rating per season |
+| **Episode Heatmap** | Color-coded grid of all episodes by rating |
+| **Episode Ratings Table** | Collapsible season-by-season episode list with ratings |
+| **Analytics Summary** | Total episodes, average rating, best/worst episode, quality trend |
+| **AI Insights** | AI-generated analysis of the show's quality patterns |
+| **Show Comparison** | Compare up to 5 shows with side-by-side charts |
+
+**Access**: Navigate to any TV show detail page → Click **"Analytics"** link
+
+**Export Options**:
+- 📄 **JSON** — Full analytics data
+- 📊 **CSV** — Episode spreadsheet
+- 🖼️ **Image** — Screenshot of analytics dashboard
+
 ---
 
 ## 🤖 AI-Powered Features
@@ -444,6 +464,14 @@ MovieMania/
 | GET | `/tmdb/tv/trending` | Trending TV shows |
 | GET | `/tmdb/tv/popular` | Popular TV shows |
 
+### Episodes (TV Analytics)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/episodes/:tmdbShowId` | Get all episodes (grouped by season) |
+| GET | `/episodes/:tmdbShowId/analytics` | Get show analytics data |
+| POST | `/episodes/:tmdbShowId/rate` | Rate an episode (auth required) |
+| POST | `/episodes/:tmdbShowId/sync` | Sync episodes from TMDB (auth required) |
+
 ### Other Endpoints
 | Endpoint | Description |
 |----------|-------------|
@@ -603,6 +631,9 @@ PORT=5000
 | ✅ | **Auto-Insights Dashboard** |
 | ✅ | TV show watchlist |
 | ✅ | Episode-level tracking |
+| ✅ | **TV Analytics (SeriesPulse)** |
+| ✅ | **Show Comparison** |
+| ✅ | **Episode Ratings Export** |
 | 🔜 | Mobile app (React Native) |
 
 ---
