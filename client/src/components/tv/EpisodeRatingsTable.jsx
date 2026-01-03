@@ -158,23 +158,35 @@ export default function EpisodeRatingsTable({ episodes, isLoading }) {
                                                             {episode.name}
                                                         </span>
                                                     </div>
-                                                    <div
-                                                        className={`flex items-center gap-1 px-3 py-1 rounded-full ${getRatingBg(
-                                                            episode.voteAverage
-                                                        )}`}
-                                                    >
-                                                        <Star
-                                                            className={`w-4 h-4 ${getRatingColor(
-                                                                episode.voteAverage
-                                                            )} fill-current`}
-                                                        />
-                                                        <span
-                                                            className={`font-bold text-sm ${getRatingColor(
+                                                    <div className="flex items-center gap-2">
+                                                        {/* IMDb Rating */}
+                                                        {episode.imdbRating && (
+                                                            <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-yellow-500/10">
+                                                                <span className="text-xs font-bold text-yellow-600">IMDb</span>
+                                                                <span className="font-bold text-sm text-yellow-500">
+                                                                    {episode.imdbRating.toFixed(1)}
+                                                                </span>
+                                                            </div>
+                                                        )}
+                                                        {/* TMDB Rating */}
+                                                        <div
+                                                            className={`flex items-center gap-1 px-3 py-1 rounded-full ${getRatingBg(
                                                                 episode.voteAverage
                                                             )}`}
                                                         >
-                                                            {episode.voteAverage.toFixed(1)}
-                                                        </span>
+                                                            <Star
+                                                                className={`w-4 h-4 ${getRatingColor(
+                                                                    episode.voteAverage
+                                                                )} fill-current`}
+                                                            />
+                                                            <span
+                                                                className={`font-bold text-sm ${getRatingColor(
+                                                                    episode.voteAverage
+                                                                )}`}
+                                                            >
+                                                                {episode.voteAverage.toFixed(1)}
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             ))}

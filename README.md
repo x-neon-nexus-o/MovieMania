@@ -212,11 +212,11 @@ Track your TV series journey with our comprehensive TV show system:
 
 Get deep insights into any TV show's episode ratings and quality trends:
 
-| Feature | Description |
+|Feature | Description |
 |---------|-------------|
 | **Season Ratings Chart** | Bar chart showing average rating per season |
-| **Episode Heatmap** | Color-coded grid of all episodes by rating |
-| **Episode Ratings Table** | Collapsible season-by-season episode list with ratings |
+| **Episode Heatmap** | Interactive grid showing rating values (e.g., 8.5) with IMDb/TMDB toggle |
+| **Episode Ratings Table** | Collapsible season-by-season episode list with IMDb badge |
 | **Analytics Summary** | Total episodes, average rating, best/worst episode, quality trend |
 | **AI Insights** | AI-generated analysis of the show's quality patterns |
 | **Show Comparison** | Compare up to 5 shows with side-by-side charts |
@@ -499,6 +499,7 @@ MONGODB_URI=mongodb://localhost:27017/moviemania
 JWT_SECRET=your_secret_at_least_32_characters_long
 REFRESH_TOKEN_SECRET=another_secret_key_also_32_chars
 TMDB_API_KEY=your_tmdb_api_key
+OMDB_API_KEY=your_omdb_api_key_for_imdb_ratings
 
 # AI Features (Optional but recommended)
 GEMINI_API_KEY=your_google_gemini_api_key
@@ -599,6 +600,7 @@ PORT=5000
 <td>
 
 - TMDB API
+- OMDb API (IMDb Ratings)
 - Google Gemini AI
 - JustWatch (via TMDB)
 - YouTube Embeds
@@ -631,7 +633,7 @@ PORT=5000
 | ✅ | **Auto-Insights Dashboard** |
 | ✅ | TV show watchlist |
 | ✅ | Episode-level tracking |
-| ✅ | **TV Analytics (SeriesPulse)** |
+| ✅ | **TV Analytics (SeriesPulse) with IMDb** |
 | ✅ | **Show Comparison** |
 | ✅ | **Episode Ratings Export** |
 | 🔜 | Mobile app (React Native) |

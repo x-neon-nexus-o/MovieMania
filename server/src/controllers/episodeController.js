@@ -3,6 +3,8 @@ import axios from 'axios';
 
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
+const OMDB_API_KEY = process.env.OMDB_API_KEY || 'fe3ed9ea';
+const OMDB_BASE_URL = 'http://www.omdbapi.com';
 
 /**
  * Helper: Retry a function with exponential backoff
@@ -25,6 +27,52 @@ async function retryWithBackoff(fn, maxRetries = 3, baseDelay = 1000) {
             console.log(`Retry ${attempt + 1}/${maxRetries} after ${delay}ms...`);
             await new Promise(resolve => setTimeout(resolve, delay));
         }
+    }
+}
+
+/**
+ * Helper: Get IMDb ID for a TV show from TMDB external IDs
+ */
+async function getTVShowIMDbId(tmdbShowId) {
+    try {
+        const response = await axios.get(`${TMDB_BASE_URL}/tv/${tmdbShowId}/external_ids`, {
+            params: { api_key: TMDB_API_KEY },
+            timeout: 5000,
+        });
+        return response.data?.imdb_id || null;
+    } catch (error) {
+        console.error('Failed to get IMDb ID:', error.message);
+        return null;
+    }
+}
+
+/**
+ * Helper: Fetch IMDb rating for an episode from OMDb
+ */
+async function fetchIMDbEpisodeRating(imdbId, season, episode) {
+    if (!imdbId) return null;
+
+    try {
+        const response = await axios.get(OMDB_BASE_URL, {
+            params: {
+                apikey: OMDB_API_KEY,
+                i: imdbId,
+                Season: season,
+                Episode: episode,
+            },
+            timeout: 5000,
+        });
+
+        if (response.data && response.data.Response === 'True') {
+            return {
+                imdbRating: parseFloat(response.data.imdbRating) || null,
+                imdbVotes: response.data.imdbVotes ? parseInt(response.data.imdbVotes.replace(/,/g, '')) : 0,
+            };
+        }
+        return null;
+    } catch (error) {
+        // Silently fail for individual episodes
+        return null;
     }
 }
 
@@ -282,6 +330,10 @@ async function syncEpisodesFromTMDB(tmdbShowId) {
     const show = showResponse.data;
     const numberOfSeasons = show.number_of_seasons;
 
+    // Get IMDb ID for the show (for OMDb episode lookups)
+    const imdbId = await getTVShowIMDbId(tmdbShowId);
+    console.log(`Syncing show ${tmdbShowId}, IMDb ID: ${imdbId || 'not found'}`);
+
     // Fetch each season's episodes
     for (let seasonNum = 1; seasonNum <= numberOfSeasons; seasonNum++) {
         try {
@@ -299,6 +351,12 @@ async function syncEpisodesFromTMDB(tmdbShowId) {
 
             // Upsert each episode
             for (const ep of season.episodes) {
+                // Try to get IMDb rating for this episode
+                let imdbData = null;
+                if (imdbId) {
+                    imdbData = await fetchIMDbEpisodeRating(imdbId, seasonNum, ep.episode_number);
+                }
+
                 await Episode.findOneAndUpdate(
                     {
                         tmdbShowId,
@@ -316,10 +374,17 @@ async function syncEpisodesFromTMDB(tmdbShowId) {
                         voteCount: ep.vote_count || 0,
                         stillPath: ep.still_path,
                         runtime: ep.runtime || 0,
+                        // Add IMDb ratings if available
+                        ...(imdbData && {
+                            imdbRating: imdbData.imdbRating,
+                            imdbVotes: imdbData.imdbVotes,
+                        }),
                     },
                     { upsert: true, new: true }
                 );
             }
+
+            console.log(`✓ Season ${seasonNum} synced (${season.episodes.length} episodes)`);
         } catch (seasonError) {
             console.error(`Error fetching season ${seasonNum}:`, seasonError.message);
             // Continue with other seasons even if one fails

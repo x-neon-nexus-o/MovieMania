@@ -47,6 +47,17 @@ const episodeSchema = new mongoose.Schema(
             type: Number,
             min: 0,
         },
+        // IMDb ratings from OMDb API
+        imdbRating: {
+            type: Number,
+            min: 0,
+            max: 10,
+        },
+        imdbVotes: {
+            type: Number,
+            default: 0,
+            min: 0,
+        },
         // User ratings
         userRatings: [
             {

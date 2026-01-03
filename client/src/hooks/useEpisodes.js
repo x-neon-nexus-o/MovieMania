@@ -7,10 +7,11 @@ import { toast } from 'react-hot-toast';
  */
 export function useEpisodes(tmdbShowId) {
     return useQuery({
-        queryKey: ['episodes', tmdbShowId],
+        queryKey: ['episodes', String(tmdbShowId)],
         queryFn: () => episodeService.getAllEpisodes(tmdbShowId),
         enabled: !!tmdbShowId,
-        staleTime: 1000 * 60 * 60 * 24, // 24 hours
+        staleTime: 1000 * 60 * 5, // 5 minutes (reduced from 24 hours)
+        refetchOnMount: 'always',
     });
 }
 
@@ -19,7 +20,7 @@ export function useEpisodes(tmdbShowId) {
  */
 export function useSeasonEpisodes(tmdbShowId, seasonNumber) {
     return useQuery({
-        queryKey: ['episodes', tmdbShowId, 'season', seasonNumber],
+        queryKey: ['episodes', String(tmdbShowId), 'season', seasonNumber],
         queryFn: () => episodeService.getSeasonEpisodes(tmdbShowId, seasonNumber),
         enabled: !!tmdbShowId && seasonNumber !== undefined && seasonNumber !== null,
     });
@@ -30,10 +31,11 @@ export function useSeasonEpisodes(tmdbShowId, seasonNumber) {
  */
 export function useShowAnalytics(tmdbShowId) {
     return useQuery({
-        queryKey: ['analytics', tmdbShowId],
+        queryKey: ['analytics', String(tmdbShowId)],
         queryFn: () => episodeService.getShowAnalytics(tmdbShowId),
         enabled: !!tmdbShowId,
-        staleTime: 1000 * 60 * 30, // 30 minutes
+        staleTime: 1000 * 60 * 5, // 5 minutes
+        refetchOnMount: 'always',
     });
 }
 
@@ -48,8 +50,8 @@ export function useRateEpisode() {
             episodeService.rateEpisode(tmdbShowId, seasonNumber, episodeNumber, rating),
         onSuccess: (_, variables) => {
             toast.success('Episode rated successfully!');
-            queryClient.invalidateQueries({ queryKey: ['episodes', variables.tmdbShowId] });
-            queryClient.invalidateQueries({ queryKey: ['analytics', variables.tmdbShowId] });
+            queryClient.invalidateQueries({ queryKey: ['episodes', String(variables.tmdbShowId)] });
+            queryClient.invalidateQueries({ queryKey: ['analytics', String(variables.tmdbShowId)] });
         },
         onError: (error) => {
             toast.error(error.response?.data?.message || 'Failed to rate episode');
@@ -67,8 +69,12 @@ export function useSyncEpisodes() {
         mutationFn: (tmdbShowId) => episodeService.syncEpisodes(tmdbShowId),
         onSuccess: (_, tmdbShowId) => {
             toast.success('Episodes synced successfully!');
-            queryClient.invalidateQueries({ queryKey: ['episodes', tmdbShowId] });
-            queryClient.invalidateQueries({ queryKey: ['analytics', tmdbShowId] });
+            // Force refetch by removing cached data first
+            queryClient.removeQueries({ queryKey: ['episodes', String(tmdbShowId)] });
+            queryClient.removeQueries({ queryKey: ['analytics', String(tmdbShowId)] });
+            // Then invalidate to trigger refetch
+            queryClient.invalidateQueries({ queryKey: ['episodes'] });
+            queryClient.invalidateQueries({ queryKey: ['analytics'] });
         },
         onError: (error) => {
             toast.error(error.response?.data?.message || 'Failed to sync episodes');
