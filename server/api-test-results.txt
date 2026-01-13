@@ -1,0 +1,77 @@
+
+============================================================
+MovieMania API Comprehensive Health Check
+============================================================
+Base URL: http://localhost:5000/api
+Time: 2026-01-13T17:16:49.907Z
+
+--- HEALTH CHECK ---
+PASS: GET /health
+
+--- AUTH ROUTES ---
+PASS: POST /auth/register (validation)
+PASS: POST /auth/login (validation)
+
+--- TMDB PUBLIC ROUTES ---
+PASS: GET /tmdb/trending (movies)
+PASS: GET /tmdb/popular (movies)
+PASS: GET /tmdb/movie/27205/videos (Inception)
+PASS: GET /tmdb/movie/27205/providers
+PASS: GET /tmdb/movie/27205/recommendations
+PASS: GET /tmdb/movie/27205/similar
+PASS: GET /tmdb/tv/trending
+PASS: GET /tmdb/tv/popular
+PASS: GET /tmdb/tv/1396/videos (Breaking Bad)
+PASS: GET /tmdb/tv/1396/providers
+PASS: GET /tmdb/tv/1396/recommendations
+
+--- TMDB PROTECTED ROUTES (expect 401) ---
+PASS: GET /tmdb/search (requires auth)
+PASS: GET /tmdb/movie/:id (requires auth)
+PASS: GET /tmdb/tv/search (requires auth)
+PASS: GET /tmdb/tv/:id (requires auth)
+
+--- PUBLIC ROUTES (optionalAuth) ---
+PASS: GET /movies
+PASS: GET /movies/tags
+PASS: GET /tvshows
+PASS: GET /tvshows/tags
+PASS: GET /stats
+PASS: GET /stats/by-year
+PASS: GET /stats/by-rating
+PASS: GET /stats/by-genre
+PASS: GET /stats/by-decade
+PASS: GET /stats/timeline
+PASS: GET /stats/tags
+PASS: GET /stats/heatmap
+PASS: GET /stats/streaks
+PASS: GET /stats/credits
+
+--- PROTECTED ROUTES (expect 401) ---
+PASS: GET /watchlist (requires auth)
+PASS: GET /watchlist-tv (requires auth)
+PASS: GET /collections (requires auth)
+PASS: GET /recommendations (requires auth)
+PASS: GET /export/movies (requires auth)
+PASS: POST /movies (create) (requires auth)
+PASS: POST /tvshows (create) (requires auth)
+PASS: POST /integrations/trakt/callback (requires auth)
+PASS: POST /integrations/trakt/sync (requires auth)
+
+--- AI ROUTES ---
+PASS: POST /ai/search (requires auth)
+
+--- EPISODE ROUTES ---
+PASS: GET /episodes/1396 (Breaking Bad)
+PASS: GET /episodes/1396/analytics
+
+============================================================
+TEST SUMMARY
+============================================================
+Passed: 44
+Failed: 0
+Total:  44
+
+ALL TESTS PASSED!
+
+============================================================
