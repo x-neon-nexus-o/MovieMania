@@ -1,0 +1,983 @@
+{
+    "_info": {
+        "description": "Sample MongoDB data for MovieMania application testing",
+        "version": "1.0",
+        "collections": [
+            "users",
+            "movies",
+            "tvshows",
+            "episodes",
+            "watchlistmovies",
+            "watchlisttvshows",
+            "collections"
+        ],
+        "note": "ObjectIds shown are sample format - MongoDB will auto-generate these. Passwords are hashed with bcrypt."
+    },
+    "users": [
+        {
+            "_id": "507f1f77bcf86cd799439011",
+            "username": "johndoe",
+            "email": "johndoe@example.com",
+            "password": "$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/X4aEX7pEKsEXl5X.6",
+            "role": "user",
+            "profile": {
+                "displayName": "John Doe",
+                "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=johndoe",
+                "bio": "Movie enthusiast and TV show binge-watcher. Love sci-fi and drama!"
+            },
+            "preferences": {
+                "theme": "dark",
+                "publicProfile": true
+            },
+            "isActive": true,
+            "integrations": {
+                "trakt": {
+                    "username": "johndoe_trakt",
+                    "lastSync": "2025-12-15T10:30:00.000Z"
+                }
+            },
+            "lastLogin": "2026-01-15T08:00:00.000Z",
+            "createdAt": "2025-01-01T00:00:00.000Z",
+            "updatedAt": "2026-01-15T08:00:00.000Z"
+        },
+        {
+            "_id": "507f1f77bcf86cd799439012",
+            "username": "janedoe",
+            "email": "janedoe@example.com",
+            "password": "$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/X4aEX7pEKsEXl5X.6",
+            "role": "admin",
+            "profile": {
+                "displayName": "Jane Doe",
+                "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=janedoe",
+                "bio": "Film critic and curator. Horror and thriller aficionado."
+            },
+            "preferences": {
+                "theme": "system",
+                "publicProfile": true
+            },
+            "isActive": true,
+            "lastLogin": "2026-01-14T20:00:00.000Z",
+            "createdAt": "2025-02-15T00:00:00.000Z",
+            "updatedAt": "2026-01-14T20:00:00.000Z"
+        }
+    ],
+    "movies": [
+        {
+            "_id": "507f1f77bcf86cd799439021",
+            "tmdbId": 550,
+            "title": "Fight Club",
+            "originalTitle": "Fight Club",
+            "year": 1999,
+            "releaseDate": "1999-10-15T00:00:00.000Z",
+            "posterPath": "/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
+            "backdropPath": "/hZkgoQYus5vegHoetLkCJzb17zJ.jpg",
+            "overview": "A ticking-Loss adjuster and a soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.",
+            "runtime": 139,
+            "tmdbGenres": [
+                {
+                    "id": 18,
+                    "name": "Drama"
+                },
+                {
+                    "id": 53,
+                    "name": "Thriller"
+                }
+            ],
+            "tmdbRating": 8.4,
+            "tmdbVoteCount": 26500,
+            "director": "David Fincher",
+            "cast": [
+                "Brad Pitt",
+                "Edward Norton",
+                "Helena Bonham Carter"
+            ],
+            "myRating": 5,
+            "watchedDate": "2025-03-20T00:00:00.000Z",
+            "myReview": "Absolutely mind-blowing! The twist at the end is legendary. One of the best films ever made.",
+            "tags": [
+                "mind-bending",
+                "cult-classic",
+                "twist-ending"
+            ],
+            "isFavorite": true,
+            "rewatchCount": 3,
+            "notes": "Must rewatch annually",
+            "addedBy": "507f1f77bcf86cd799439011",
+            "isPublic": true,
+            "syncedFrom": "manual",
+            "externalIds": {
+                "imdbId": "tt0137523"
+            },
+            "createdAt": "2025-03-20T14:30:00.000Z",
+            "updatedAt": "2025-12-01T10:00:00.000Z"
+        },
+        {
+            "_id": "507f1f77bcf86cd799439022",
+            "tmdbId": 27205,
+            "title": "Inception",
+            "originalTitle": "Inception",
+            "year": 2010,
+            "releaseDate": "2010-07-16T00:00:00.000Z",
+            "posterPath": "/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg",
+            "backdropPath": "/s3TBrRGB1iav7gFOCNx3H31MoES.jpg",
+            "overview": "Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life as payment for a task considered to be impossible: \"inception\", the implantation of another person's idea into a target's subconscious.",
+            "runtime": 148,
+            "tmdbGenres": [
+                {
+                    "id": 28,
+                    "name": "Action"
+                },
+                {
+                    "id": 878,
+                    "name": "Science Fiction"
+                },
+                {
+                    "id": 12,
+                    "name": "Adventure"
+                }
+            ],
+            "tmdbRating": 8.4,
+            "tmdbVoteCount": 34000,
+            "director": "Christopher Nolan",
+            "cast": [
+                "Leonardo DiCaprio",
+                "Joseph Gordon-Levitt",
+                "Ellen Page",
+                "Tom Hardy"
+            ],
+            "myRating": 4.5,
+            "watchedDate": "2025-06-10T00:00:00.000Z",
+            "myReview": "A masterpiece of storytelling. The layers within layers concept is brilliantly executed.",
+            "tags": [
+                "sci-fi",
+                "nolan",
+                "dreams"
+            ],
+            "isFavorite": true,
+            "rewatchCount": 2,
+            "addedBy": "507f1f77bcf86cd799439011",
+            "isPublic": true,
+            "syncedFrom": "manual",
+            "externalIds": {
+                "imdbId": "tt1375666"
+            },
+            "createdAt": "2025-06-10T20:00:00.000Z",
+            "updatedAt": "2025-11-15T08:00:00.000Z"
+        },
+        {
+            "_id": "507f1f77bcf86cd799439023",
+            "tmdbId": 680,
+            "title": "Pulp Fiction",
+            "originalTitle": "Pulp Fiction",
+            "year": 1994,
+            "releaseDate": "1994-10-14T00:00:00.000Z",
+            "posterPath": "/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
+            "backdropPath": "/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg",
+            "overview": "A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge in this sprawling, comedic crime caper.",
+            "runtime": 154,
+            "tmdbGenres": [
+                {
+                    "id": 53,
+                    "name": "Thriller"
+                },
+                {
+                    "id": 80,
+                    "name": "Crime"
+                }
+            ],
+            "tmdbRating": 8.5,
+            "tmdbVoteCount": 25000,
+            "director": "Quentin Tarantino",
+            "cast": [
+                "John Travolta",
+                "Samuel L. Jackson",
+                "Uma Thurman",
+                "Bruce Willis"
+            ],
+            "myRating": 5,
+            "watchedDate": "2025-01-05T00:00:00.000Z",
+            "myReview": "Tarantino at his finest. The non-linear narrative is genius.",
+            "tags": [
+                "tarantino",
+                "crime",
+                "classic"
+            ],
+            "isFavorite": true,
+            "rewatchCount": 4,
+            "addedBy": "507f1f77bcf86cd799439012",
+            "isPublic": true,
+            "syncedFrom": "manual",
+            "externalIds": {
+                "imdbId": "tt0110912"
+            },
+            "createdAt": "2025-01-05T22:00:00.000Z",
+            "updatedAt": "2025-10-20T15:00:00.000Z"
+        },
+        {
+            "_id": "507f1f77bcf86cd799439024",
+            "tmdbId": 157336,
+            "title": "Interstellar",
+            "originalTitle": "Interstellar",
+            "year": 2014,
+            "releaseDate": "2014-11-05T00:00:00.000Z",
+            "posterPath": "/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+            "backdropPath": "/xJHokMbljvjADYdit5fK5VQsXEG.jpg",
+            "overview": "The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+            "runtime": 169,
+            "tmdbGenres": [
+                {
+                    "id": 12,
+                    "name": "Adventure"
+                },
+                {
+                    "id": 18,
+                    "name": "Drama"
+                },
+                {
+                    "id": 878,
+                    "name": "Science Fiction"
+                }
+            ],
+            "tmdbRating": 8.4,
+            "tmdbVoteCount": 32000,
+            "director": "Christopher Nolan",
+            "cast": [
+                "Matthew McConaughey",
+                "Anne Hathaway",
+                "Jessica Chastain",
+                "Michael Caine"
+            ],
+            "myRating": 5,
+            "watchedDate": "2025-08-12T00:00:00.000Z",
+            "myReview": "Emotionally devastating and visually stunning. The docking scene still gives me chills.",
+            "tags": [
+                "space",
+                "nolan",
+                "emotional",
+                "hans-zimmer"
+            ],
+            "isFavorite": true,
+            "rewatchCount": 2,
+            "addedBy": "507f1f77bcf86cd799439011",
+            "isPublic": true,
+            "syncedFrom": "manual",
+            "externalIds": {
+                "imdbId": "tt0816692"
+            },
+            "createdAt": "2025-08-12T19:00:00.000Z",
+            "updatedAt": "2025-12-25T10:00:00.000Z"
+        },
+        {
+            "_id": "507f1f77bcf86cd799439025",
+            "tmdbId": 603,
+            "title": "The Matrix",
+            "originalTitle": "The Matrix",
+            "year": 1999,
+            "releaseDate": "1999-03-30T00:00:00.000Z",
+            "posterPath": "/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+            "backdropPath": "/fNG7i7RqMErkcqhohV2a6cV1Ehy.jpg",
+            "overview": "Set in the 22nd century, The Matrix tells the story of a computer hacker who joins a group of underground insurgents fighting the vast and powerful computers who now rule the earth.",
+            "runtime": 136,
+            "tmdbGenres": [
+                {
+                    "id": 28,
+                    "name": "Action"
+                },
+                {
+                    "id": 878,
+                    "name": "Science Fiction"
+                }
+            ],
+            "tmdbRating": 8.2,
+            "tmdbVoteCount": 24000,
+            "director": "The Wachowskis",
+            "cast": [
+                "Keanu Reeves",
+                "Laurence Fishburne",
+                "Carrie-Anne Moss",
+                "Hugo Weaving"
+            ],
+            "myRating": 4.5,
+            "watchedDate": "2025-04-18T00:00:00.000Z",
+            "myReview": "Revolutionary filmmaking. Changed action cinema forever.",
+            "tags": [
+                "sci-fi",
+                "action",
+                "philosophy",
+                "cyberpunk"
+            ],
+            "isFavorite": false,
+            "rewatchCount": 1,
+            "addedBy": "507f1f77bcf86cd799439011",
+            "isPublic": true,
+            "syncedFrom": "manual",
+            "externalIds": {
+                "imdbId": "tt0133093"
+            },
+            "createdAt": "2025-04-18T21:00:00.000Z",
+            "updatedAt": "2025-09-10T12:00:00.000Z"
+        }
+    ],
+    "tvshows": [
+        {
+            "_id": "507f1f77bcf86cd799439031",
+            "tmdbId": 1396,
+            "name": "Breaking Bad",
+            "originalName": "Breaking Bad",
+            "firstAirDate": "2008-01-20T00:00:00.000Z",
+            "lastAirDate": "2013-09-29T00:00:00.000Z",
+            "posterPath": "/ztkUQFLlC19CCMYHW9o1zWhJRNq.jpg",
+            "backdropPath": "/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg",
+            "overview": "When Walter White, a New Mexico chemistry teacher, is diagnosed with Stage III cancer and given a prognosis of only two years left to live. He becomes filled with a sense of fearlessness and an unrelenting desire to secure his family's financial future at any cost as he enters the dangerous world of drugs and crime.",
+            "numberOfSeasons": 5,
+            "numberOfEpisodes": 62,
+            "episodeRunTime": [
+                45,
+                47
+            ],
+            "status": "Ended",
+            "tmdbGenres": [
+                {
+                    "id": 18,
+                    "name": "Drama"
+                },
+                {
+                    "id": 80,
+                    "name": "Crime"
+                }
+            ],
+            "tmdbRating": 9.5,
+            "tmdbVoteCount": 12000,
+            "networks": [
+                {
+                    "id": 174,
+                    "name": "AMC",
+                    "logoPath": "/pmvRmATOCaDykE6JrVoeYf8Bjl.png"
+                }
+            ],
+            "creators": [
+                "Vince Gilligan"
+            ],
+            "cast": [
+                "Bryan Cranston",
+                "Aaron Paul",
+                "Anna Gunn",
+                "Dean Norris"
+            ],
+            "myRating": 5,
+            "watchStatus": "completed",
+            "currentSeason": 5,
+            "currentEpisode": 62,
+            "startedDate": "2024-06-01T00:00:00.000Z",
+            "completedDate": "2024-08-15T00:00:00.000Z",
+            "myReview": "The greatest TV show ever made. Perfect character development and storytelling.",
+            "tags": [
+                "masterpiece",
+                "drama",
+                "crime",
+                "character-study"
+            ],
+            "isFavorite": true,
+            "rewatchCount": 1,
+            "notes": "El Camino next",
+            "addedBy": "507f1f77bcf86cd799439011",
+            "isPublic": true,
+            "createdAt": "2024-06-01T10:00:00.000Z",
+            "updatedAt": "2024-08-15T23:00:00.000Z"
+        },
+        {
+            "_id": "507f1f77bcf86cd799439032",
+            "tmdbId": 60625,
+            "name": "Rick and Morty",
+            "originalName": "Rick and Morty",
+            "firstAirDate": "2013-12-02T00:00:00.000Z",
+            "posterPath": "/cvhNj9eoRBe5SxjCbQTkh05UP5K.jpg",
+            "backdropPath": "/7lzY9cKxkcpCMKPF8wRCBU3M0ZH.jpg",
+            "overview": "Rick is a mentally-unbalanced but scientifically-gifted old man who has recently reconnected with his family. He spends most of his time involving his young grandson Morty in dangerous, outlandish adventures throughout space and alternate universes.",
+            "numberOfSeasons": 7,
+            "numberOfEpisodes": 71,
+            "episodeRunTime": [
+                22
+            ],
+            "status": "Returning Series",
+            "tmdbGenres": [
+                {
+                    "id": 16,
+                    "name": "Animation"
+                },
+                {
+                    "id": 35,
+                    "name": "Comedy"
+                },
+                {
+                    "id": 10765,
+                    "name": "Sci-Fi & Fantasy"
+                }
+            ],
+            "tmdbRating": 8.7,
+            "tmdbVoteCount": 8500,
+            "networks": [
+                {
+                    "id": 2,
+                    "name": "Adult Swim",
+                    "logoPath": "/9GlDHjQj9c3n3VddnPTfOq5pSx1.png"
+                }
+            ],
+            "creators": [
+                "Dan Harmon",
+                "Justin Roiland"
+            ],
+            "cast": [
+                "Justin Roiland",
+                "Chris Parnell",
+                "Spencer Grammer",
+                "Sarah Chalke"
+            ],
+            "myRating": 4,
+            "watchStatus": "watching",
+            "currentSeason": 5,
+            "currentEpisode": 3,
+            "startedDate": "2025-10-01T00:00:00.000Z",
+            "myReview": "Hilarious and surprisingly deep at times.",
+            "tags": [
+                "animation",
+                "comedy",
+                "sci-fi",
+                "dark-humor"
+            ],
+            "isFavorite": false,
+            "rewatchCount": 0,
+            "addedBy": "507f1f77bcf86cd799439011",
+            "isPublic": true,
+            "createdAt": "2025-10-01T15:00:00.000Z",
+            "updatedAt": "2026-01-10T20:00:00.000Z"
+        },
+        {
+            "_id": "507f1f77bcf86cd799439033",
+            "tmdbId": 1399,
+            "name": "Game of Thrones",
+            "originalName": "Game of Thrones",
+            "firstAirDate": "2011-04-17T00:00:00.000Z",
+            "lastAirDate": "2019-05-19T00:00:00.000Z",
+            "posterPath": "/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
+            "backdropPath": "/suopoADq0k8YZr4dQXcU6pToj6s.jpg",
+            "overview": "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
+            "numberOfSeasons": 8,
+            "numberOfEpisodes": 73,
+            "episodeRunTime": [
+                60
+            ],
+            "status": "Ended",
+            "tmdbGenres": [
+                {
+                    "id": 10765,
+                    "name": "Sci-Fi & Fantasy"
+                },
+                {
+                    "id": 18,
+                    "name": "Drama"
+                },
+                {
+                    "id": 10759,
+                    "name": "Action & Adventure"
+                }
+            ],
+            "tmdbRating": 8.4,
+            "tmdbVoteCount": 21000,
+            "networks": [
+                {
+                    "id": 49,
+                    "name": "HBO",
+                    "logoPath": "/tuomPhY2UtuPTqqFnKMVHvSb724.png"
+                }
+            ],
+            "creators": [
+                "David Benioff",
+                "D. B. Weiss"
+            ],
+            "cast": [
+                "Emilia Clarke",
+                "Peter Dinklage",
+                "Kit Harington",
+                "Lena Headey"
+            ],
+            "myRating": 4,
+            "watchStatus": "completed",
+            "currentSeason": 8,
+            "currentEpisode": 73,
+            "startedDate": "2023-01-01T00:00:00.000Z",
+            "completedDate": "2023-05-20T00:00:00.000Z",
+            "myReview": "Amazing until season 8. Still worth watching for the journey.",
+            "tags": [
+                "fantasy",
+                "epic",
+                "dragons",
+                "political-drama"
+            ],
+            "isFavorite": false,
+            "rewatchCount": 0,
+            "notes": "Might rewatch seasons 1-6 only",
+            "addedBy": "507f1f77bcf86cd799439012",
+            "isPublic": true,
+            "createdAt": "2023-01-01T08:00:00.000Z",
+            "updatedAt": "2023-05-20T22:00:00.000Z"
+        },
+        {
+            "_id": "507f1f77bcf86cd799439034",
+            "tmdbId": 66732,
+            "name": "Stranger Things",
+            "originalName": "Stranger Things",
+            "firstAirDate": "2016-07-15T00:00:00.000Z",
+            "posterPath": "/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",
+            "backdropPath": "/56v2KjBlU4XaOv9rVYEQypROD7P.jpg",
+            "overview": "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl.",
+            "numberOfSeasons": 5,
+            "numberOfEpisodes": 42,
+            "episodeRunTime": [
+                50,
+                77
+            ],
+            "status": "Returning Series",
+            "tmdbGenres": [
+                {
+                    "id": 18,
+                    "name": "Drama"
+                },
+                {
+                    "id": 9648,
+                    "name": "Mystery"
+                },
+                {
+                    "id": 10765,
+                    "name": "Sci-Fi & Fantasy"
+                }
+            ],
+            "tmdbRating": 8.6,
+            "tmdbVoteCount": 16000,
+            "networks": [
+                {
+                    "id": 213,
+                    "name": "Netflix",
+                    "logoPath": "/wwemzKWzjKYJFfCeiB57q3r4Bcm.png"
+                }
+            ],
+            "creators": [
+                "Matt Duffer",
+                "Ross Duffer"
+            ],
+            "cast": [
+                "Millie Bobby Brown",
+                "Finn Wolfhard",
+                "Winona Ryder",
+                "David Harbour"
+            ],
+            "myRating": 4.5,
+            "watchStatus": "on-hold",
+            "currentSeason": 4,
+            "currentEpisode": 5,
+            "startedDate": "2025-07-01T00:00:00.000Z",
+            "myReview": "Great 80s nostalgia vibes. Season 4 is intense!",
+            "tags": [
+                "horror",
+                "80s",
+                "nostalgia",
+                "supernatural"
+            ],
+            "isFavorite": true,
+            "rewatchCount": 0,
+            "notes": "Waiting for friends to catch up before continuing",
+            "addedBy": "507f1f77bcf86cd799439011",
+            "isPublic": true,
+            "createdAt": "2025-07-01T12:00:00.000Z",
+            "updatedAt": "2025-11-30T18:00:00.000Z"
+        }
+    ],
+    "episodes": [
+        {
+            "_id": "507f1f77bcf86cd799439041",
+            "tmdbShowId": 1396,
+            "seasonNumber": 1,
+            "episodeNumber": 1,
+            "name": "Pilot",
+            "overview": "Walter White, a 50-year-old chemistry teacher, secretly begins making crystal meth to support his family after he's diagnosed with terminal lung cancer.",
+            "airDate": "2008-01-20T00:00:00.000Z",
+            "voteAverage": 8.8,
+            "voteCount": 1500,
+            "stillPath": "/ydlY3iPfeOAvu8gVqrxPoMvzNCn.jpg",
+            "runtime": 58,
+            "imdbRating": 9.0,
+            "imdbVotes": 25000,
+            "userRatings": [
+                {
+                    "userId": "507f1f77bcf86cd799439011",
+                    "rating": 9,
+                    "ratedAt": "2024-06-02T20:00:00.000Z"
+                }
+            ],
+            "cachedAnalytics": {
+                "averageUserRating": 9,
+                "totalUserRatings": 1,
+                "lastUpdated": "2024-06-02T20:00:00.000Z"
+            },
+            "createdAt": "2024-06-01T10:00:00.000Z",
+            "updatedAt": "2024-06-02T20:00:00.000Z"
+        },
+        {
+            "_id": "507f1f77bcf86cd799439042",
+            "tmdbShowId": 1396,
+            "seasonNumber": 5,
+            "episodeNumber": 16,
+            "name": "Felina",
+            "overview": "All bad things must come to an end.",
+            "airDate": "2013-09-29T00:00:00.000Z",
+            "voteAverage": 9.9,
+            "voteCount": 2500,
+            "stillPath": "/pA0YwGvGHvW8GRKRQXYfPz7O7F.jpg",
+            "runtime": 55,
+            "imdbRating": 9.9,
+            "imdbVotes": 150000,
+            "userRatings": [
+                {
+                    "userId": "507f1f77bcf86cd799439011",
+                    "rating": 10,
+                    "ratedAt": "2024-08-15T22:00:00.000Z"
+                }
+            ],
+            "cachedAnalytics": {
+                "averageUserRating": 10,
+                "totalUserRatings": 1,
+                "lastUpdated": "2024-08-15T22:00:00.000Z"
+            },
+            "createdAt": "2024-06-01T10:00:00.000Z",
+            "updatedAt": "2024-08-15T22:00:00.000Z"
+        },
+        {
+            "_id": "507f1f77bcf86cd799439043",
+            "tmdbShowId": 1396,
+            "seasonNumber": 4,
+            "episodeNumber": 13,
+            "name": "Face Off",
+            "overview": "Walt and Jesse team up to take down their competition once and for all.",
+            "airDate": "2011-10-09T00:00:00.000Z",
+            "voteAverage": 9.8,
+            "voteCount": 2000,
+            "stillPath": "/hWnIBo69G8FMzXU8JGkHBvwN8Ic.jpg",
+            "runtime": 47,
+            "imdbRating": 9.9,
+            "imdbVotes": 75000,
+            "userRatings": [
+                {
+                    "userId": "507f1f77bcf86cd799439011",
+                    "rating": 10,
+                    "ratedAt": "2024-07-20T21:00:00.000Z"
+                }
+            ],
+            "cachedAnalytics": {
+                "averageUserRating": 10,
+                "totalUserRatings": 1,
+                "lastUpdated": "2024-07-20T21:00:00.000Z"
+            },
+            "createdAt": "2024-06-01T10:00:00.000Z",
+            "updatedAt": "2024-07-20T21:00:00.000Z"
+        },
+        {
+            "_id": "507f1f77bcf86cd799439044",
+            "tmdbShowId": 66732,
+            "seasonNumber": 1,
+            "episodeNumber": 1,
+            "name": "The Vanishing of Will Byers",
+            "overview": "On his way home from a friend's house, young Will sees something terrifying. Nearby, a sinister secret lurks in the depths of a government lab.",
+            "airDate": "2016-07-15T00:00:00.000Z",
+            "voteAverage": 8.5,
+            "voteCount": 1200,
+            "stillPath": "/AdwF2jXvhdODr1gAj2fhiY8Gj9.jpg",
+            "runtime": 48,
+            "imdbRating": 8.4,
+            "imdbVotes": 18000,
+            "userRatings": [
+                {
+                    "userId": "507f1f77bcf86cd799439011",
+                    "rating": 8.5,
+                    "ratedAt": "2025-07-01T20:00:00.000Z"
+                }
+            ],
+            "cachedAnalytics": {
+                "averageUserRating": 8.5,
+                "totalUserRatings": 1,
+                "lastUpdated": "2025-07-01T20:00:00.000Z"
+            },
+            "createdAt": "2025-07-01T12:00:00.000Z",
+            "updatedAt": "2025-07-01T20:00:00.000Z"
+        }
+    ],
+    "watchlistmovies": [
+        {
+            "_id": "507f1f77bcf86cd799439051",
+            "tmdbId": 872585,
+            "title": "Oppenheimer",
+            "year": 2023,
+            "posterPath": "/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+            "backdropPath": "/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
+            "overview": "The story of J. Robert Oppenheimer's role in the development of the atomic bomb during World War II.",
+            "runtime": 180,
+            "tmdbGenres": [
+                {
+                    "id": 18,
+                    "name": "Drama"
+                },
+                {
+                    "id": 36,
+                    "name": "History"
+                }
+            ],
+            "tmdbRating": 8.1,
+            "releaseDate": "2023-07-21T00:00:00.000Z",
+            "priority": "high",
+            "targetWatchDate": "2026-02-01T00:00:00.000Z",
+            "notes": "Need to watch in IMAX if possible",
+            "source": "social_media",
+            "addedBy": "507f1f77bcf86cd799439011",
+            "isAvailableOnStreaming": true,
+            "streamingPlatforms": [
+                "Peacock",
+                "Amazon Prime"
+            ],
+            "reminderSent": false,
+            "createdAt": "2025-12-01T10:00:00.000Z",
+            "updatedAt": "2025-12-15T08:00:00.000Z"
+        },
+        {
+            "_id": "507f1f77bcf86cd799439052",
+            "tmdbId": 346698,
+            "title": "Barbie",
+            "year": 2023,
+            "posterPath": "/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg",
+            "overview": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land.",
+            "runtime": 114,
+            "tmdbGenres": [
+                {
+                    "id": 35,
+                    "name": "Comedy"
+                },
+                {
+                    "id": 12,
+                    "name": "Adventure"
+                }
+            ],
+            "tmdbRating": 7.0,
+            "releaseDate": "2023-07-21T00:00:00.000Z",
+            "priority": "medium",
+            "notes": "Heard great things about the aesthetic",
+            "source": "friend",
+            "recommendedBy": "Sarah",
+            "addedBy": "507f1f77bcf86cd799439011",
+            "isAvailableOnStreaming": true,
+            "streamingPlatforms": [
+                "Max",
+                "Amazon Prime"
+            ],
+            "reminderSent": false,
+            "createdAt": "2025-11-20T15:00:00.000Z",
+            "updatedAt": "2025-11-20T15:00:00.000Z"
+        },
+        {
+            "_id": "507f1f77bcf86cd799439053",
+            "tmdbId": 572802,
+            "title": "Aquaman and the Lost Kingdom",
+            "year": 2023,
+            "posterPath": "/7lTnXOy0iNtBAdRP3TZvaKJ77F6.jpg",
+            "overview": "Black Manta seeks revenge on Aquaman for his father's death. Wielding the Black Trident's power, he becomes a formidable foe.",
+            "runtime": 124,
+            "tmdbGenres": [
+                {
+                    "id": 28,
+                    "name": "Action"
+                },
+                {
+                    "id": 12,
+                    "name": "Adventure"
+                },
+                {
+                    "id": 14,
+                    "name": "Fantasy"
+                }
+            ],
+            "tmdbRating": 6.4,
+            "releaseDate": "2023-12-20T00:00:00.000Z",
+            "priority": "low",
+            "source": "trailer",
+            "addedBy": "507f1f77bcf86cd799439012",
+            "isAvailableOnStreaming": false,
+            "streamingPlatforms": [],
+            "reminderSent": false,
+            "createdAt": "2025-10-05T18:00:00.000Z",
+            "updatedAt": "2025-10-05T18:00:00.000Z"
+        }
+    ],
+    "watchlisttvshows": [
+        {
+            "_id": "507f1f77bcf86cd799439061",
+            "tmdbId": 94997,
+            "name": "House of the Dragon",
+            "firstAirDate": "2022-08-21T00:00:00.000Z",
+            "posterPath": "/z2yahl2uefxDCl0nogcRBstwruJ.jpg",
+            "backdropPath": "/etj8E2o0Bud0HkONVQPjyCkIvpv.jpg",
+            "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most combatants who died in the war are long dead, but their children remain.",
+            "numberOfSeasons": 2,
+            "numberOfEpisodes": 18,
+            "status": "Returning Series",
+            "tmdbGenres": [
+                {
+                    "id": 10765,
+                    "name": "Sci-Fi & Fantasy"
+                },
+                {
+                    "id": 18,
+                    "name": "Drama"
+                },
+                {
+                    "id": 10759,
+                    "name": "Action & Adventure"
+                }
+            ],
+            "tmdbRating": 8.4,
+            "networks": [
+                {
+                    "id": 49,
+                    "name": "HBO"
+                }
+            ],
+            "priority": "high",
+            "targetStartDate": "2026-03-01T00:00:00.000Z",
+            "notes": "Watch before season 3 releases",
+            "source": "recommendation",
+            "recommendedBy": "Mike from work",
+            "addedBy": "507f1f77bcf86cd799439011",
+            "isAvailableOnStreaming": true,
+            "streamingPlatforms": [
+                "Max"
+            ],
+            "reminderSent": false,
+            "createdAt": "2025-11-01T09:00:00.000Z",
+            "updatedAt": "2025-12-10T14:00:00.000Z"
+        },
+        {
+            "_id": "507f1f77bcf86cd799439062",
+            "tmdbId": 114472,
+            "name": "The Bear",
+            "firstAirDate": "2022-06-23T00:00:00.000Z",
+            "posterPath": "/sHFlbKS3WLqMnp9t2ghADIJFnuQ.jpg",
+            "overview": "A young chef from the fine dining world returns to Chicago to run his family's sandwich shop.",
+            "numberOfSeasons": 3,
+            "numberOfEpisodes": 28,
+            "status": "Returning Series",
+            "tmdbGenres": [
+                {
+                    "id": 18,
+                    "name": "Drama"
+                },
+                {
+                    "id": 35,
+                    "name": "Comedy"
+                }
+            ],
+            "tmdbRating": 8.5,
+            "networks": [
+                {
+                    "id": 2739,
+                    "name": "Hulu"
+                }
+            ],
+            "priority": "high",
+            "notes": "Everyone keeps recommending this",
+            "source": "friend",
+            "recommendedBy": "Multiple friends",
+            "addedBy": "507f1f77bcf86cd799439011",
+            "isAvailableOnStreaming": true,
+            "streamingPlatforms": [
+                "Hulu",
+                "Disney+"
+            ],
+            "reminderSent": false,
+            "createdAt": "2025-09-15T11:00:00.000Z",
+            "updatedAt": "2025-12-01T16:00:00.000Z"
+        }
+    ],
+    "collections": [
+        {
+            "_id": "507f1f77bcf86cd799439071",
+            "name": "Christopher Nolan Favorites",
+            "description": "All the amazing films by Christopher Nolan that I've watched",
+            "emoji": "🎬",
+            "coverImage": "/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg",
+            "color": "#1e3a5f",
+            "movies": [
+                {
+                    "movie": "507f1f77bcf86cd799439022",
+                    "addedAt": "2025-06-10T20:30:00.000Z",
+                    "note": "Mind-bending masterpiece"
+                },
+                {
+                    "movie": "507f1f77bcf86cd799439024",
+                    "addedAt": "2025-08-12T19:30:00.000Z",
+                    "note": "Made me cry"
+                }
+            ],
+            "type": "manual",
+            "isPublic": true,
+            "isPinned": true,
+            "createdBy": "507f1f77bcf86cd799439011",
+            "createdAt": "2025-06-10T20:30:00.000Z",
+            "updatedAt": "2025-08-12T19:30:00.000Z"
+        },
+        {
+            "_id": "507f1f77bcf86cd799439072",
+            "name": "90s Classics",
+            "description": "The best movies from the 1990s",
+            "emoji": "📼",
+            "color": "#7c3aed",
+            "movies": [
+                {
+                    "movie": "507f1f77bcf86cd799439021",
+                    "addedAt": "2025-03-20T14:45:00.000Z",
+                    "note": "First rule..."
+                },
+                {
+                    "movie": "507f1f77bcf86cd799439025",
+                    "addedAt": "2025-04-18T21:15:00.000Z",
+                    "note": "Red pill or blue pill?"
+                }
+            ],
+            "type": "manual",
+            "isPublic": false,
+            "isPinned": false,
+            "createdBy": "507f1f77bcf86cd799439011",
+            "createdAt": "2025-03-20T14:45:00.000Z",
+            "updatedAt": "2025-04-18T21:15:00.000Z"
+        },
+        {
+            "_id": "507f1f77bcf86cd799439073",
+            "name": "5-Star Movies",
+            "description": "Auto-generated collection of all my top-rated movies",
+            "emoji": "⭐",
+            "color": "#f59e0b",
+            "movies": [],
+            "type": "smart",
+            "smartRules": {
+                "minRating": 5,
+                "maxRating": 5,
+                "favorites": false
+            },
+            "isPublic": true,
+            "isPinned": false,
+            "createdBy": "507f1f77bcf86cd799439011",
+            "createdAt": "2025-09-01T10:00:00.000Z",
+            "updatedAt": "2025-09-01T10:00:00.000Z"
+        }
+    ],
+    "_import_instructions": {
+        "mongoimport_command": "mongoimport --uri 'mongodb://localhost:27017/moviemania' --collection <collection_name> --jsonArray --file sample-mongodb-data.json --jsonPath '$.<collection_name>'",
+        "note": "For each collection, extract the array and import separately. Or use the seed script below.",
+        "alternative": "Use MongoDB Compass to import each collection array directly"
+    }
+}
